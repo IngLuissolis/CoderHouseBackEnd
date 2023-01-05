@@ -7,7 +7,7 @@
 - Los desafios del Curso completados son los siguientes:
 
 ### Clases ECMAScript y ECMAScript avanzado
-    -Archivo: DesafiosDesafio01ECMAScript.js
+    -Archivo: Desafios/Desafio01ECMAScript.js
 
 # Descripción del Proyecto:
 
