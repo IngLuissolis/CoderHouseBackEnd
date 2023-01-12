@@ -6,15 +6,15 @@
 
 - Los desafios del Curso completados son los siguientes:
 
-### Clases ECMAScript y ECMAScript avanzado
-    -Archivo: Desafios/Desafio01ECMAScript.js
-
-### Manejo de Archivos
+### Desafio 02 - Manejo de Archivos
     -Archivo: Desafios/Desafio02ProductManager.js
+
+### Desafio 01 - Clases ECMAScript y ECMAScript avanzado
+    -Archivo: Desafios/Desafio01ECMAScript.js
 
 # Descripción del Proyecto:
 
-Proyecto para la venta de camisetas de los paises que estan jugando el campeonato mundial de futbol Qatar 2022 desarrollado con tecnologia React
+Proyecto para la venta de camisetas de los paises que jugaron el campeonato mundial de futbol Qatar 2022 desarrollado con tecnologia React (frontEnd)
 
 # Estado del Proyecto
 
@@ -26,13 +26,11 @@ Proyecto para la venta de camisetas de los paises que estan jugando el campeonat
 
 # Librerias utilizadas
 
-### Completar
+- Completar
 
 # Customer Homepage
 
 Animación Gif ecommerce
-
-
 
 # Firebase - collection orders
 
