@@ -9,6 +9,9 @@
 ### Clases ECMAScript y ECMAScript avanzado
     -Archivo: Desafios/Desafio01ECMAScript.js
 
+### Manejo de Archivos
+    -Archivo: Desafios/Desafio02ProductManager.js
+
 # Descripción del Proyecto:
 
 Proyecto para la venta de camisetas de los paises que estan jugando el campeonato mundial de futbol Qatar 2022 desarrollado con tecnologia React

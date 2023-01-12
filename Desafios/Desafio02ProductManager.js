@@ -83,4 +83,4 @@ productManager.updateProduct(0, {
 });
 console.log(productManager.getProductById(0)); // debe devolver producto actualizado
 productManager.deleteProduct(0);
-console.log(productManager.getProducts()); // ebe devolver arreglo vacío []
+console.log(productManager.getProducts()); // debe devolver arreglo vacío []
