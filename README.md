@@ -8,6 +8,7 @@
 
 ### Desafio 02 - Manejo de Archivos
     -Archivo: Desafios/Desafio02ProductManager.js
+    -Archivo Forma Asincronica: Desafio/Desafio02ProductManagerAsync.js
 
 ### Desafio 01 - Clases ECMAScript y ECMAScript avanzado
     -Archivo: Desafios/Desafio01ECMAScript.js

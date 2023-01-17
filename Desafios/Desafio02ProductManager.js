@@ -81,6 +81,6 @@ productManager.updateProduct(0, {
   code: "abc123",
   stock: 30
 });
-console.log(productManager.getProductById(0)); // debe devolver producto actualizado
+console.log(productManager.getProductById(0)); // debe devolver producto actualizado {{ id: 0, title: "producto prueba actualizado", ... }}
 productManager.deleteProduct(0);
 console.log(productManager.getProducts()); // debe devolver arreglo vacío []
