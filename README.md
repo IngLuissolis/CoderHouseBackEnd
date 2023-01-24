@@ -6,6 +6,12 @@
 
 - Los desafios del Curso completados son los siguientes:
 
+### Desafio 03 - Servidor con Express
+    -Archivos en carpeta Desafios/Desafio03ServidorConExpress/src
+        -- /app.js
+        -- /ProductManager.js
+        -- /products.json
+
 ### Desafio 02 - Manejo de Archivos
     -Archivo: Desafios/Desafio02ProductManager.js
     -Archivo Forma Asincronica: Desafio/Desafio02ProductManagerAsync.js
@@ -23,7 +29,7 @@ Proyecto para la venta de camisetas de los paises que jugaron el campeonato mund
 
 # Tecnologias utilizadas
 
-- Completar
+- express
 
 # Librerias utilizadas
 
