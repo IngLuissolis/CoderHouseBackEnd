@@ -29,35 +29,3 @@ app.get('/products/:pid', async (req, res) => {
 app.listen(8080,() => {
     console.log("Server iniciado en puerto 8080");
 })
-
-
-// app.get('/saludo',(req, res) => {
-//     res.send("Hola a todos, pero ahora desde express!")
-// })
-
-/**
- * Utilizamos los (:) para indicar quq queremos que ese sea el parametro.
- * 
- */
-// app.get('/unparametro/:nombre',(req, res) => {
-//     //:parametro que se encontrara dentro del objeto req.params
-//     console.log(req.params.nombre);
-//     res.send(`Bienvenidos, ${req.params.nombre}`);
-// })
-
-// app.listen(8080,() => {
-//     console.log("Servidor arriba en puerto 8080")
-// })
-
-// app.use(express.urlencoded({extended:true}));
-
-// app.get('/ejemploQueries',(req,res)=> {
-//     let consultas = req.query;
-//     let {nombre, apellido, edad} = req.query;
-
-//     res.send(consultas);
-// })
-
-// app.listen(8080,() => {
-//     console.log("Escuchando puerto 8080")
-// })

@@ -60,35 +60,3 @@ class ProductManager {
 }
 
 export default ProductManager;
-
-// const productManager = new ProductManager("products.json");
-
-// (async () => {
-//   console.log(await productManager.getProducts()); // Debe retornar []
-//   await productManager.addProduct({
-//     title: "producto prueba",
-//     description: "Este es un producto prueba",
-//     price: 200,
-//     thumbnail: "Sin imagen",
-//     code: "abc123",
-//     stock: 25
-//   });
-//   console.log(await productManager.getProducts());
-//   console.log(await productManager.getProductById(0));
-//   try {
-//     await productManager.getProductById(1);
-//   } catch(err) {
-//     console.log(err.message); // Debe retornar "Producto No Encontrado"
-//   }
-//   await productManager.updateProduct(0, {
-//     title: "Producto actualizado",
-//     description: "Este es un producto actualizado",
-//     price: 250,
-//     thumbnail: "Sin imagen",
-//     code: "abc124",
-//     stock: 20
-//   });
-//   console.log(await productManager.getProductById(0)); // Deber retornar producto actualizado
-//   await productManager.deleteProduct(0);
-//   console.log(await productManager.getProducts()); // Debe retornar []
-// })();
