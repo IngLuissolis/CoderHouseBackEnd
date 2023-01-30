@@ -12,13 +12,13 @@
 https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/PrimeraEntrega
 
 - Archivo server.js:
-https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/PrimeraEntrega/server.js
+https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/PrimeraEntrega/src/server.js
 
 - Archivo products.router.js:
-https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/PrimeraEntrega/routes/products.router.js
+https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/PrimeraEntrega/src/routes/products.router.js
 
 - Archivo carts.router.js:
-https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/PrimeraEntrega/routes/carts.router.js
+https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/PrimeraEntrega/src/routes/carts.router.js
 
 - Se utiliza archivo adicional utils.js para generar ruta relativa
 
