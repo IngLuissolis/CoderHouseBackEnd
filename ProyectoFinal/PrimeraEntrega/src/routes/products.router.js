@@ -41,10 +41,6 @@ router.post("/", async (req, res) => {
         status = true;
     }
 
-    // let newId = 1;
-    // if (products.length > 0) {
-    //   newId = products[products.length - 1].id + 1;
-    // }
     const newProduct = {
       id: generateId(),
       title,
@@ -58,7 +54,6 @@ router.post("/", async (req, res) => {
     };
     products.push(newProduct);
     saveProducts();
-    // fs.writeFileSync('productos.json', JSON.stringify(products));
     res.status(201).send(newProduct);
 });
 
@@ -90,7 +85,6 @@ router.put("/:pid", async (req, res) => {
       status,
     };
     saveProducts();
-    // fs.writeFileSync("productos.json", JSON.stringify(products));
     res.send(products[productIndex]);
 })
 
@@ -101,7 +95,6 @@ router.delete("/:pid", async (req, res) => {
         return res.status(404).send({ message: 'Producto No Encontrado' });
     }
     products.splice(productIndex, 1);
-    // fs.writeFileSync('productos.json', JSON.stringify(products));
     saveProducts();
     res.send({ message: 'Producto Borrado' });
 })

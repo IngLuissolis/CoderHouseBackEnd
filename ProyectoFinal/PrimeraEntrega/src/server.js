@@ -1,7 +1,4 @@
 import express from 'express';
-// import __dirname from './utils.js';
-
-// console.log('dirname: ',__dirname);
 
 //importar los archivos de rutas
 import productsRouter from './routes/products.router.js';
