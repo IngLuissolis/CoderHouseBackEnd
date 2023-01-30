@@ -58,35 +58,39 @@ router.post("/", async (req, res) => {
 });
 
 router.put("/:pid", async (req, res) => {
-    let pid = req.params.pid;
-    const productIndex = products.findIndex((p) => p.id === parseInt(pid));
-    if (productIndex === -1) {
-      return res.status(404).send({ message: "Producto No Encontrado" });
-    }
-    const {
-      title,
-      description,
-      code,
-      price,
-      stock,
-      category,
-      thumbnails,
-      status,
-    } = req.body;
-    products[productIndex] = {
-      ...products[productIndex],
-      title,
-      description,
-      code,
-      price,
-      stock,
-      category,
-      thumbnails,
-      status,
-    };
-    saveProducts();
-    res.send(products[productIndex]);
-})
+  let pid = req.params.pid;
+  const productIndex = products.findIndex((p) => p.id === parseInt(pid));
+  if (productIndex === -1) {
+    return res.status(404).send({ message: "Producto No Encontrado" });
+  }
+
+  const existingProduct = products[productIndex];
+  
+  const {
+    title = existingProduct.title,
+    description = existingProduct.description,
+    code = existingProduct.code,
+    price = existingProduct.price,
+    stock = existingProduct.stock,
+    category = existingProduct.category,
+    thumbnails = existingProduct.thumbnails,
+    status = existingProduct.status,
+  } = req.body;
+
+  products[productIndex] = {
+    ...products[productIndex],
+    title,
+    description,
+    code,
+    price,
+    stock,
+    category,
+    thumbnails,
+    status,
+  };
+  saveProducts();
+  res.send(products[productIndex]);
+});
 
 router.delete("/:pid", async (req, res) => {
     let pid = req.params.pid;
