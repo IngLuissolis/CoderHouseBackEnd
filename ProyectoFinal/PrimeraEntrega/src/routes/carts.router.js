@@ -2,12 +2,12 @@ import { Router } from "express";
 import fs from "fs";
 import __dirname from '../utils.js';
 
-//console.log('dirname: ',__dirname);
+console.log('dirname: ',__dirname);
 
 const router = Router();
 
 let carts = [];
-//let products = [];
+let products = [];
 
 const cartsFilePath = `${__dirname}/carrito.json`;
 const productsFilePath = `${__dirname}/productos.json`;
