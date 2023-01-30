@@ -6,6 +6,23 @@
 
 - Los desafios del Curso completados son los siguientes:
 
+## Desafio Primera Entrega
+-Archivos en carpeta:
+
+https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/PrimeraEntrega
+
+- Archivo server.js:
+https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/PrimeraEntrega/server.js
+
+- Archivo products.router.js:
+https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/PrimeraEntrega/routes/products.router.js
+
+- Archivo carts.router.js:
+https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/PrimeraEntrega/routes/carts.router.js
+
+- Se utiliza archivo adicional utils.js para generar ruta relativa
+
+
 ### Desafio 03 - Servidor con Express
     -Archivos en carpeta 
     https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/Desafios/Desafio03ServidorConExpress/src
