@@ -16,8 +16,8 @@ https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/Desafios/DesafioWebS
     - src/views/home.handlebars: En navegador se encuentra en direccion web http://localhost:8080/
     - src/views/realTimeProducts.handlebars: En navegador se encuentra en direccion web http://localhost:8080/realtimeproducts
 
-- Server.js
-    - se agrego configuración de websocket para interactuar con archivo src/js/index.js del lado del frontEnd
+- Archivo src/server.js
+    - se agrego configuración de websocket para interactuar con archivo public/js/index.js del lado del frontEnd
 
 ## Desafio Primera Entrega
 -Archivos en carpeta:
