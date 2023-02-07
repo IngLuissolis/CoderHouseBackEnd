@@ -6,6 +6,19 @@
 
 - Los desafios del Curso completados son los siguientes:
 
+## Desafio WebSocket
+
+-Archivos en carpeta:
+
+https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/Desafios/DesafioWebSocket
+
+- Handlebars: se generaron los archivos
+    - src/views/home.handlebars: En navegador se encuentra en direccion web http://localhost:8080/
+    - src/views/realTimeProducts.handlebars: En navegador se encuentra en direccion web http://localhost:8080/realtimeproducts
+
+- Server.js
+    - se agrego configuración de websocket para interactuar con archivo src/js/index.js del lado del frontEnd
+
 ## Desafio Primera Entrega
 -Archivos en carpeta:
 
