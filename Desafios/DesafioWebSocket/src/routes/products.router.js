@@ -1,21 +1,9 @@
 import { Router } from "express";
 import fs from "fs";
 import __dirname from '../utils.js';
-//
-// import express from 'express';
-// import http from 'http';
-// import { Server } from 'socket.io';
 
 const router = Router();
 const productsFilePath = `${__dirname}/productos.json`;
-
-//
-// const app = express();
-// //Escuchando puerto 8080
-// const htppServer = app.listen(8080,() => {
-//   console.log("Escuchando puerto 8080 desde products.router");
-// })
-// const io = new Server(htppServer);
 
 let products = [];
 
@@ -66,9 +54,6 @@ router.post("/", async (req, res) => {
     };
     products.push(newProduct);
     saveProducts();
-
-    // Configuración de servidor io de sockets
-    //io.emit('actualizarListaClient', products);
 
     res.status(201).send(newProduct);
 });

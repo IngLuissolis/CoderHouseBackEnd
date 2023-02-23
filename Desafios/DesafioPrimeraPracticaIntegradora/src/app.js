@@ -1,27 +1,34 @@
 import express from 'express';
-import { Server } from 'socket.io';
-import __dirname from './utils.js';
 import handlebars from 'express-handlebars';
+import __dirname from './utils.js';
 import fs from "fs";
-
+import { Server } from 'socket.io';
 //importar los archivos de rutas
 import productsRouter from './routes/products.router.js';
 import cartsRouter from './routes/carts.router.js';
+import chatRouter from './routes/chat.router.js';
+import messagesRouter from './routes/messages.router.js';
+//
+import MessagesManager from './dao/mongoManagers/messagesManager.js';
+
+//import DBConfig
+import './dao/dbConfig.js';
+
+const app = express(); // A partir de aquí, app contendra todas las funcionalidades de express
+const PORT = 3000;
+const messagesManager = new MessagesManager();
+
+//Variable que guarda los mensajes del chat
+let infoMensajes = [];
 
 let products = [];
-
-const productsFilePath = `${__dirname}/productos.json`;
-//Lee el archivo productos.json y guarda los datos en la variable products
+const productsFilePath = `${__dirname}/products.json`;
 products = JSON.parse(fs.readFileSync(productsFilePath));
-const app = express(); // A partir de aquí, app contendra todas las funcionalidades de express
 
-//Escuchando puerto 8080
-const htppServer = app.listen(8080,() => {
-    console.log("Escuchando puerto 8080");
+//Escuchando puerto 3000
+const htppServer = app.listen(PORT,() => {
+    console.log(`Escuchando puerto ${PORT}`);
 })
-
-//Creación de socketServer
-const socketServer = new Server(htppServer);
 
 //Primero tenemos que configurar nuestro servidor para que pueda recibir información del cliente
 app.use(express.json()); //como indica el metodo, ahora el servidor podra recibir JSONS al momento de la petición
@@ -30,8 +37,10 @@ app.use(express.urlencoded({extended:true})); //permite que se pueda enviar info
 //Configuración de las rutas
 app.use('/api/products', productsRouter);
 app.use('/api/carts', cartsRouter);
+app.use('/chat', chatRouter);
+app.use('/viewsMessages', messagesRouter);
 
-//Carpeta con archivos publicos para el servidor, el archivo tiene que tener nombre index
+//Carpeta con archivos publicos para el servidor, el archivo tiene que tener nombre index.js
 app.use(express.static(__dirname + '/public'));
 
 // handlebars - Motor de plantilla
@@ -51,12 +60,31 @@ app.get('/realtimeproducts', (req, res) => {
     res.render('realTimeProducts', {products}); //renderiza al inicio products
 })
 
+//ruta para mostrar al cliente chat
+
+
+//Creación de socketServer
+const socketServer = new Server(htppServer);
+
 /****** WebSocket del lado del Server *********/
 //Escuchar evento de tipo connection y disconnect
 // '.on' escucha eventos
 // '.emit' emite eventos desde el servidor
 socketServer.on('connection', (socket) => {
     console.log(`Usuario conectado ${socket.id}`);
+
+    socket.on('nuevoUsuario', usuario => {
+        //broadcast emite a todos los usuarios conectados menos al nuevoUsuario 
+        socket.broadcast.emit('broadcast', usuario);
+    })
+
+    socket.on('mensaje', async info => {
+        //guardar Mensajes en MongoDB
+        const newMessage = await messagesManager.createMessage(info);
+        console.log('Nuevo Mensaje guardado: ',newMessage);
+        infoMensajes.push(info);
+        socketServer.emit('chat', infoMensajes);
+    }) 
 
     socket.on('createProduct', (product) => {
         //Validación campo status

@@ -6,9 +6,47 @@
 
 - Los desafios del Curso completados son los siguientes:
 
+## Desafio Primera Practica Integradora
+
+- Archivos en carpeta:
+
+https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/Desafios/DesafioPrimeraPracticaIntegradora
+
+- MongoDB:
+
+    - Se crea en Atlas DataBase ecommerceCoderHouse
+        - Collections:
+            - products
+            - carts
+            - messages
+
+    - Se separa los Managers de fileSystem de los Managers de MongoDB en carpeta dao.
+
+    - Se codifica estructura models donde se guardan los esquemas de MongoDB
+
+    - En collection "carts" se guarda "_id" y "quantity" de product. "quantity" se incrementa en 1 cada vez que se guarda mismo _id de product.
+
+- Chat Handlebars:
+
+    - ruta: http://localhost:3000/chat
+
+    - Los mensajes se guardan en MongoDB, estructura "user" y "message"
+
+    - Los mensajes se pueden visualizar con una petición GET con la siguiente estructura:
+        -       GetAllMessages: ruta: http://localhost:3000/viewsMessages/
+        -       getMessageById: ruta: http://localhost:3000/viewsMessages//id
+
+
+- Corrección Desafio WebSocket
+
+    - Se corrigue eliminación de productos, anteriormente se eliminaban y no se volvian a enlistar a partir de ahi.
+    Faltaba la instrucción:
+    products = JSON.parse(fs.readFileSync(productsFilePath));
+
+
 ## Desafio WebSocket
 
--Archivos en carpeta:
+- Archivos en carpeta:
 
 https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/Desafios/DesafioWebSocket
 
