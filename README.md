@@ -36,7 +36,7 @@ https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/Segund
 
         - Contar con el botón de “agregar al carrito” directamente, sin necesidad de abrir una página adicional con los detalles del producto.
 
-    - Además, agregar una vista en ‘/carts/:cid (cartId) para visualizar un carrito específico, donde se deberán listar SOLO los productos que pertenezcan a dicho carrito. 
+        - Además, agregar una vista en ‘/carts/:cid (cartId) para visualizar un carrito específico, donde se deberán listar SOLO los productos que pertenezcan a dicho carrito. 
 
 ## Desafio Primera Practica Integradora
 
