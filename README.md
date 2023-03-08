@@ -6,6 +6,38 @@
 
 - Los desafios del Curso completados son los siguientes:
 
+## Desafio Segunda pre-entrega Proyecto Final
+
+- Archivos en carpeta:
+
+https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/SegundaEntrega
+
+- Requerimientos:
+
+    - Se recibe por query params un limit (opcional), una page (opcional), un sort (asc / desc por precio) y un query (grupo)
+
+        Devuelve un objeto con formato que se ve en ejemplo
+
+        Ejemplo: petición GET http://localhost:3000/api/products?sort=desc&query=GrupoC&limit=2
+
+    - Además, se agrega router de carts los siguientes endpoints:
+
+        - DELETE api/carts/:cid/products/:pid elimina del carrito el producto seleccionado.
+
+        - PUT api/carts/:cid actualiza el carrito con un arreglo de productos con el formato especificado arriba.
+
+        - PUT api/carts/:cid/products/:pid actualiza SÓLO la cantidad de ejemplares del producto por cualquier cantidad pasada desde req.body
+
+        - DELETE api/carts/:cid elimina todos los productos del carrito.
+
+    - (PENDIENTE) Crear una vista en el router de views ‘/products’ para visualizar todos los productos con su respectiva paginación. Cada producto mostrado puede resolverse de dos formas:
+
+        - Llevar a una nueva vista con el producto seleccionado con su descripción completa, detalles de precio, categoría, etc. Además de un botón para agregar al carrito.
+
+        - Contar con el botón de “agregar al carrito” directamente, sin necesidad de abrir una página adicional con los detalles del producto.
+
+    - Además, agregar una vista en ‘/carts/:cid (cartId) para visualizar un carrito específico, donde se deberán listar SOLO los productos que pertenezcan a dicho carrito. 
+
 ## Desafio Primera Practica Integradora
 
 - Archivos en carpeta:
