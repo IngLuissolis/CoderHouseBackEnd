@@ -12,32 +12,10 @@ router.get('/create', async (req, res) => {
   res.send('Productos guardados con exito');
 })
 
-//Metodo GET que realiza pagination
-router.get('/pagination', async (req, res) => {
-  //por default page = 1 y limit = 10
-  const {page = 1, limit = 10} = req.query;
-  const products = await productsManager.paginateProducts(limit, page);
-  res.json({result: products});
-})
-
-//Metodo GET que realiza aggregate
-router.get('/aggregate', async (req, res) => {
-  const {grupo = 'GrupoA', orden1Precio} = req.query;
-  const products = await productsManager.aggregateProducts(grupo, orden1Precio);
-  res.json({result: products});
-})
-
-// router.get('/', async (req, res) => {
-//   const { limit = 10, page = 1, sort, query } = req.query;
-//   const products = await productsManager.getAllProducts(
-//     parseInt(limit),
-//     parseInt(page),
-//     sort,
-//     query
-//   );
-//   res.render('products', { products });
-// })
-
+/*En este metodo, la condición if (req.headers.accept && req.headers.accept.includes('text/html')) 
+verifica si la solicitud se realizó con la intención de obtener una respuesta HTML. 
+Si es así, se enviará una respuesta en formato HTML utilizando el método res.render(). 
+Si no, se enviará una respuesta JSON utilizando el método res.json()*/
 router.get("/", async (req, res) => {
   const {page = 1, limit = 10, sort, query } = req.query;
 
@@ -49,25 +27,26 @@ router.get("/", async (req, res) => {
     const prev = productsDB.hasPrevPage ? 
       `http://localhost:3000/api/products?page=${productsDB.prevPage}` : null;
 
-    //console.log('products: ', products.docs);
-
     const products = productsDB.docs;
 
-    res.render('products', { products });
-
-    // res.status(200).json({
-    //   status: 'success',
-    //   payload: productsDB.docs,
-    //   info: {
-    //     totalPages: productsDB.totalPages,
-    //     prevPage: productsDB.hasPrevPag,
-    //     nextPage: productsDB.hasNextPage,
-    //     page: productsDB.page,
-    //     hasNextPage: productsDB.hasNextPage,
-    //     hasPrevPage: productsDB.hasPrevPage,
-    //     prevLink: prev,
-    //     nextLink: next}
-    //   });
+    if(req.headers.accept && req.headers.accept.includes('text/html')) {
+      res.render('products', { products });
+    } else {
+      res.status(200).json({
+        status: 'success',
+        payload: productsDB.docs,
+        info: {
+          totalPages: productsDB.totalPages,
+          prevPage: productsDB.hasPrevPag,
+          nextPage: productsDB.hasNextPage,
+          page: productsDB.page,
+          hasNextPage: productsDB.hasNextPage,
+          hasPrevPage: productsDB.hasPrevPage,
+          prevLink: prev,
+          nextLink: next
+        }
+      });
+    }
   } catch (error) {
     res
       .status(500)
@@ -105,6 +84,21 @@ router.delete('/:id', async (req, res) => {
   const {id} = req.params;
   const deleteProduct = await productsManager.deleteProduct(id);
   res.json({messagge: 'Producto eliminado con Exito', product: deleteProduct});
+})
+
+//Metodo GET que realiza pagination
+router.get('/pagination', async (req, res) => {
+  //por default page = 1 y limit = 10
+  const {page = 1, limit = 10} = req.query;
+  const products = await productsManager.paginateProducts(limit, page);
+  res.json({result: products});
+})
+
+//Metodo GET que realiza aggregate
+router.get('/aggregate', async (req, res) => {
+  const {grupo = 'GrupoA', orden1Precio} = req.query;
+  const products = await productsManager.aggregateProducts(grupo, orden1Precio);
+  res.json({result: products});
 })
 
 export default router;

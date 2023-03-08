@@ -22,21 +22,21 @@ https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/Segund
 
     - Además, se agrega router de carts los siguientes endpoints:
 
-        - DELETE api/carts/:cid/products/:pid elimina del carrito el producto seleccionado.
+        - DELETE http://localhost:3000/api/carts/:cid/products/:pid elimina del carrito el producto seleccionado.
 
-        - PUT api/carts/:cid actualiza el carrito con un arreglo de productos con el formato especificado arriba.
+        - PUT http://localhost:3000/api/carts/:cid actualiza el carrito con un arreglo de productos con el formato especificado arriba.
 
-        - PUT api/carts/:cid/products/:pid actualiza SÓLO la cantidad de ejemplares del producto por cualquier cantidad pasada desde req.body
+        - PUT http://localhost:3000/api/carts/:cid/products/:pid actualiza SÓLO la cantidad de ejemplares del producto por cualquier cantidad pasada desde req.body
 
-        - DELETE api/carts/:cid elimina todos los productos del carrito.
+        - DELETE http://localhost:3000/api/carts/:cid elimina todos los productos del carrito.
 
-    - (PENDIENTE) Crear una vista en el router de views ‘/products’ para visualizar todos los productos con su respectiva paginación. Cada producto mostrado puede resolverse de dos formas:
+    - Se crea una vista en el router de views ‘/products’ (archivo products.handlebars) para visualizar todos los productos con su respectiva paginación. Cada producto mostrado puede resolverse de dos formas:
 
-        - Llevar a una nueva vista con el producto seleccionado con su descripción completa, detalles de precio, categoría, etc. Además de un botón para agregar al carrito.
+        - Se crea nueva vista con el producto seleccionado con su descripción completa, detalles de precio, categoría, etc. Además de un botón para agregar al carrito.
 
         - Contar con el botón de “agregar al carrito” directamente, sin necesidad de abrir una página adicional con los detalles del producto.
 
-        - Además, agregar una vista en ‘/carts/:cid (cartId) para visualizar un carrito específico, donde se deberán listar SOLO los productos que pertenezcan a dicho carrito. 
+        - Además, agregar una vista en ‘/carts/:cid (archivo carts.handlebars) para visualizar un carrito específico, donde se deberán listar SOLO los productos que pertenezcan a dicho carrito. Se agrega boton eliminar al lado de cada producto, se elimina de un producto en uno en el caso de tener mas de un producto. 
 
 ## Desafio Primera Practica Integradora
 

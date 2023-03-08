@@ -38,8 +38,12 @@ router.post('/', async (req, res) => {
 router.post('/:cid/products/:pid', async (req, res) => {
   let { cid } = req.params;
   let { pid } = req.params;
+  let { quantity } = req.body;
+
+  (quantity === '') ? quantity = 1: quantity;
+  
   try {
-    const newProductInCart = await cartsManager.addProductInCart(cid,pid);
+    const newProductInCart = await cartsManager.addProductInCart(cid,pid, quantity);
     res.json({messagge: 'Producto agregado al carrito con exito', newProductInCart: newProductInCart});
   } catch (error) {
     res.status(404).json({messagge: error.message});
@@ -51,7 +55,6 @@ router.delete('/:cid/products/:pid', async (req, res) => {
   let { pid } = req.params;
   await cartsManager.removeProductInCart(cid, pid);
   res.json({messagge: `Producto ${pid} eliminado con Exito de carrito ${cid}`})
-
 })
 
 router.delete('/:cid', async (req,res) => {

@@ -39,7 +39,7 @@ export default class CartsManager {
     }
   }
 
-  async addProductInCart(cid, pid) {
+  async addProductInCart(cid, pid, quantity) {
     try {
       const cartDB = await cartsModel
         .findById(cid)
@@ -52,7 +52,7 @@ export default class CartsManager {
       if (existingProduct) {
         existingProduct.quantity += 1;
       } else {
-        cartDB.products.push({ product: pid, quantity: 1 });
+        cartDB.products.push({ product: pid, quantity: quantity });
       }
 
       cartDB.save();
