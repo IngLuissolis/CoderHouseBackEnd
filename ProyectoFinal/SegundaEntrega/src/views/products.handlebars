@@ -1,0 +1,109 @@
+<!-- Tarjetas de productos -->
+{{#each products}}
+
+<div class="product-card">
+  {{!-- <img src="{{imgBandera}}" alt="{{nombre}}" class="product-image"> --}}
+  <div class="product-info">
+    <h2>{{nombre}}</h2>
+    <p>{{grupo}}</p>
+    <p>Precio: {{camiseta1Precio}}</p>
+  </div>
+  <div class="product-buttons">
+    <button type="button" class="button button-details" data-product-id="{{_id}}">Detalles</button>
+    <form id="add-to-cart-form-{{_id}}">
+        <input type="hidden" name="_method" value="POST">
+        <input type="hidden" name="productId" value="{{_id}}">
+        <input type="number" name="quantity" value="1" min="1">
+        <button type="submit" class="button button-add-to-cart">Agregar al carrito</button>
+    </form>
+  </div>
+</div>
+{{/each}}
+
+{{!-- <script>
+  const forms = document.querySelectorAll(`form[id^="add-to-cart-form-"]`);
+  forms.forEach(form => {
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const quantity = form.querySelector('input[name="quantity"]').value;
+      const productId = form.querySelector('input[name="productId"]').value;
+      const cartId = '640770c34f24214b67548b24';
+
+      // Verificar si el carrito existe
+      try {
+        const response = await fetch(`/api/carts/${cartId}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        const data = await response.json();
+        if (!data) {
+          // Si el carrito no existe, crear uno nuevo
+          const newCartResponse = await fetch(`/api/carts/`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({})
+          });
+          const newCartData = await newCartResponse.json();
+          cartId = newCartData._id; // Actualizar el identificador del carrito
+        }
+      } catch (error) {
+        console.error(error);
+      }
+
+      try {
+        const response = await fetch(`/api/carts/${cartId}/products/${productId}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ quantity })
+        });
+
+        const data = await response.json();
+        console.log(data);
+      } catch (error) {
+        console.error(error);
+      }
+    });
+  });
+</script> --}}
+
+{{!-- <!-- Cuadro de diálogo de detalles de producto -->
+<div id="product-details-dialog" class="hide">
+  <h2 id="product-details-dialog-name"></h2>
+  <p id="product-details-dialog-description"></p>
+  <p id="product-details-dialog-price"></p>
+</div> --}}
+
+
+<!-- Carga de SweetAlert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<!-- Controlador de eventos para el botón de detalles -->
+<script>
+  const detailsButtons = document.querySelectorAll('.button-details');
+
+  detailsButtons.forEach((button) => {
+    button.addEventListener('click', async () => {
+      const productId = button.dataset.productId;
+      
+      const response = await fetch(`/api/products/${productId}`);
+      
+      const product = await response.json();
+      console.log('product: ', product.product.nombre);
+
+      Swal.fire({
+        title: product.product.nombre,
+        html: `
+          <p>${product.product.grupo}</p>
+          <p>Precio: ${product.product.camiseta1Precio}</p>
+        `,
+        confirmButtonText: 'Cerrar',
+      });
+    });
+  });
+</script>
