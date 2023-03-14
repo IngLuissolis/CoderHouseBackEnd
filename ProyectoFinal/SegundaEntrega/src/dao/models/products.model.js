@@ -15,29 +15,35 @@ const productsSchema = new mongoose.Schema({
         required: true,
     },
     camiseta1: {
-        type: String,
-        required: true,
+        imgCamiseta: {
+            type: String,
+            required: true
+        },
+        precio: {
+            type: Number,
+            required: true
+        },
+        stock: {
+            type: Number,
+            required: true            
+        }
+        //,required: true
     },
     camiseta2: {
-        type: String,
-        required: true,
-    },
-    camiseta1Stock: {
-        type: Number,
-        required: true,
-    },
-    camiseta2Stock: {
-        type: Number,
-        required: true,
-    },
-    camiseta1Precio: {
-        type: Number,
-        required: true,
-    },
-    camiseta2Precio: {
-        type: Number,
-        required: true,
-    },
+        imgCamiseta: {
+            type: String,
+            required: true
+        },
+        precio: {
+            type: Number,
+            required: true
+        },
+        stock: {
+            type: Number,
+            required: true            
+        }
+        //,required: true
+    }
 })
 
 productsSchema.plugin(mongoosePaginate);

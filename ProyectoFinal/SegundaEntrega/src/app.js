@@ -3,14 +3,21 @@ import handlebars from 'express-handlebars';
 import __dirname from './utils.js';
 import fs from "fs";
 import { Server } from 'socket.io';
+import cookieParser from 'cookie-parser';
+import session from 'express-session';
+import mongoStore from 'connect-mongo';
+//passport
+import passport from 'passport';
+import './passport/passportStrategies.js';
 //importar los archivos de rutas
 import productsRouter from './routes/products.router.js';
 import cartsRouter from './routes/carts.router.js';
 import chatRouter from './routes/chat.router.js';
 import messagesRouter from './routes/messages.router.js';
+import viewsRouter from './routes/views.router.js';
+import usersRouter from './routes/users.router.js';
 //
 import MessagesManager from './dao/mongoManagers/messagesManager.js';
-
 //import DBConfig
 import './dao/dbConfig.js';
 
@@ -34,11 +41,32 @@ const htppServer = app.listen(PORT,() => {
 app.use(express.json()); //como indica el metodo, ahora el servidor podra recibir JSONS al momento de la petición
 app.use(express.urlencoded({extended:true})); //permite que se pueda enviar información tambien desde la URL
 
+//Mongo session
+app.use(
+    session(
+    {
+        secret: 'sessionKey'
+        ,resave: false
+        ,saveUninitialized: true
+        ,cookie: {maxAge: 15000}
+        ,store: new mongoStore({
+            mongoUrl: 'mongodb+srv://ingedusolis:Htkr6Os7ZRlJjzBB@cluster0.7td5aft.mongodb.net/ecommerceCoder?retryWrites=true&w=majority'
+        })
+    }
+))
+
+//Configuracion passport
+app.use(passport.initialize());
+//passport va a guardar la informacion de session
+app.use(passport.session());
+
 //Configuración de las rutas
 app.use('/api/products', productsRouter);
 app.use('/api/carts', cartsRouter);
 app.use('/chat', chatRouter);
 app.use('/viewsMessages', messagesRouter);
+app.use('/users', usersRouter);
+app.use('/views', viewsRouter);
 
 //Carpeta con archivos publicos para el servidor, el archivo tiene que tener nombre index.js
 app.use(express.static(__dirname + '/public'));

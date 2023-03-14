@@ -1,28 +1,31 @@
 <!-- Tarjetas de productos -->
-{{#each products}}
+<h1>Bienvenido {{user.first_name}}</h1>
+<h2>Role: {{user.role}}</h2>
+<button onclick="location.href='/users/logout'">LOGOUT</button>
 
-<div class="product-card">
-  {{!-- <img src="{{imgBandera}}" alt="{{nombre}}" class="product-image"> --}}
-  <div class="product-info">
-    <h2>{{nombre}}</h2>
-    <p>{{grupo}}</p>
-    <p>Precio: {{camiseta1Precio}}</p>
+<div class="products-cards-container">
+  {{#each products}}
+  <div class="product-card">
+    {{!-- <img src="{{imgBandera}}" alt="{{nombre}}" class="product-image"> --}}
+    <div class="product-info">
+      <h2>{{nombre}}</h2>
+      <p>{{grupo}}</p>
+      <p>Precio: {{camiseta1.precio}}</p>
+      <button type="button" class="button button-details" data-product-id="{{_id}}">Detalles</button>
+    </div>
+    <div class="product-buttons d-flex">
+      <form id="add-to-cart-form-{{_id}}" onsubmit="event.preventDefault(); addToCart('64087e4e96e16fad6d58e2dd', '{{_id}}')">
+          <input type="hidden" name="_method" value="POST">
+          <input type="hidden" name="productId" value="{{_id}}">
+          <input type="number" name="quantity" min="1">
+          <button type="submit" class="button button-add-to-cart">Agregar al carrito</button>
+      </form>
+    </div>
   </div>
-  <div class="product-buttons">
-    <button type="button" class="button button-details" data-product-id="{{_id}}">Detalles</button>
-    <form id="add-to-cart-form-{{_id}}" onsubmit="event.preventDefault(); addToCart('64087e4e96e16fad6d58e2dd', '{{_id}}')">
-        <input type="hidden" name="_method" value="POST">
-        <input type="hidden" name="productId" value="{{_id}}">
-        <input type="number" name="quantity" min="1">
-        <button type="submit" class="button button-add-to-cart">Agregar al carrito</button>
-    </form>
-  </div>
+  {{/each}}
 </div>
-{{/each}}
 
 
-<!-- Carga de SweetAlert -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 <!-- Controlador de eventos para el botón de detalles -->
 <script>
@@ -40,7 +43,7 @@
         title: product.product.nombre,
         html: `
           <p>${product.product.grupo}</p>
-          <p>Precio: ${product.product.camiseta1Precio}</p>
+          <p>Precio: ${product.product.camiseta1.precio}</p>
         `,
         confirmButtonText: 'Cerrar',
       });

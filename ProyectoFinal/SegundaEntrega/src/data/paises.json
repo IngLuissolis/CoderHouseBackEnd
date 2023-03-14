@@ -3,352 +3,480 @@
     "imgBandera": "BanderaQatar.png",
     "nombre": "Qatar",
     "grupo": "GrupoA",
-    "camiseta1": "Qatar1.webp",
-    "camiseta2": "Qatar2.webp",
-    "camiseta1Stock": 11,
-    "camiseta2Stock": 12,
-    "camiseta1Precio": 11000,
-    "camiseta2Precio": 12000
+    "camiseta1": {
+      "imgCamiseta": "Qatar1.webp",
+      "precio": 11000,
+      "stock": 11
+    },
+    "camiseta2": {
+      "imgCamiseta": "Qatar2.webp",
+      "precio": 12000,
+      "stock": 12
+    }
   },
   {
     "imgBandera": "BanderaEcuador.png",
     "nombre": "Ecuador",
     "grupo": "GrupoA",
-    "camiseta1": "Ecuador1.webp",
-    "camiseta2": "Ecuador2.webp",
-    "camiseta1Stock": 12,
-    "camiseta2Stock": 13,
-    "camiseta1Precio": 12000,
-    "camiseta2Precio": 13000
+    "camiseta1": {
+      "imgCamiseta": "Ecuador1.webp",
+      "precio": 12000,
+      "stock": 12
+    },
+    "camiseta2": {
+      "imgCamiseta": "Ecuador2.webp",
+      "precio": 13000,
+      "stock": 13
+    }
   },
   {
     "imgBandera": "BanderaSenegal.png",
     "nombre": "Senegal",
     "grupo": "GrupoA",
-    "camiseta1": "Senegal1.webp",
-    "camiseta2": "Senegal2.webp",
-    "camiseta1Stock": 13,
-    "camiseta2Stock": 14,
-    "camiseta1Precio": 13000,
-    "camiseta2Precio": 14000
+    "camiseta1": {
+      "imgCamiseta": "Senegal1.webp",
+      "precio": 13000,
+      "stock": 13
+    },
+    "camiseta2": {
+      "imgCamiseta": "Senegal2.webp",
+      "precio": 14000,
+      "stock": 14
+    }
   },
   {
     "imgBandera": "BanderaPaisesBajos.png",
     "nombre": "Paises Bajos",
     "grupo": "GrupoA",
-    "camiseta1": "PaisesBajos1.webp",
-    "camiseta2": "PaisesBajos2.webp",
-    "camiseta1Stock": 14,
-    "camiseta2Stock": 15,
-    "camiseta1Precio": 14000,
-    "camiseta2Precio": 15000
+    "camiseta1": {
+      "imgCamiseta": "PaisesBajos1.webp",
+      "precio": 14000,
+      "stock": 14
+    },
+    "camiseta2": {
+      "imgCamiseta": "PaisesBajos2.webp",
+      "precio": 15000,
+      "stock": 15
+    }
   },
   {
     "imgBandera": "BanderaInglaterra.png",
     "nombre": "Inglaterra",
     "grupo": "GrupoB",
-    "camiseta1": "Inglaterra1.webp",
-    "camiseta2": "Inglaterra2.webp",
-    "camiseta1Stock": 21,
-    "camiseta2Stock": 22,
-    "camiseta1Precio": 21000,
-    "camiseta2Precio": 22000
+    "camiseta1": {
+      "imgCamiseta": "Inglaterra1.webp",
+      "precio": 20000,
+      "stock": 20
+    },
+    "camiseta2": {
+      "imgCamiseta": "Inglaterra2.webp",
+      "precio": 21000,
+      "stock": 21
+    }
   },
   {
     "imgBandera": "BanderaIran.png",
     "nombre": "Iran",
     "grupo": "GrupoB",
-    "camiseta1": "Iran1.webp",
-    "camiseta2": "Iran2.webp",
-    "camiseta1Stock": 22,
-    "camiseta2Stock": 23,
-    "camiseta1Precio": 22000,
-    "camiseta2Precio": 23000
+    "camiseta1": {
+      "imgCamiseta": "Iran1.webp",
+      "precio": 21000,
+      "stock": 21
+    },
+    "camiseta2": {
+      "imgCamiseta": "Iran2.webp",
+      "precio": 22000,
+      "stock": 22
+    }
   },
   {
     "imgBandera": "BanderaEstadosUnidos.png",
     "nombre": "Estados Unidos",
     "grupo": "GrupoB",
-    "camiseta1": "EstadosUnidos1.webp",
-    "camiseta2": "EstadosUnidos2.webp",
-    "camiseta1Stock": 23,
-    "camiseta2Stock": 24,
-    "camiseta1Precio": 23000,
-    "camiseta2Precio": 24000
+    "camiseta1": {
+      "imgCamiseta": "EstadosUnidos1.webp",
+      "precio": 22000,
+      "stock": 22
+    },
+    "camiseta2": {
+      "imgCamiseta": "EstadosUnidos1.webp",
+      "precio": 23000,
+      "stock": 23
+    }
   },
   {
     "imgBandera": "BanderaGales.png",
     "nombre": "Gales",
     "grupo": "GrupoB",
-    "camiseta1": "Gales1.webp",
-    "camiseta2": "Gales2.webp",
-    "camiseta1Stock": 24,
-    "camiseta2Stock": 25,
-    "camiseta1Precio": 24000,
-    "camiseta2Precio": 25000
+    "camiseta1": {
+      "imgCamiseta": "Gales1.webp",
+      "precio": 23000,
+      "stock": 23
+    },
+    "camiseta2": {
+      "imgCamiseta": "Gales2.webp",
+      "precio": 24000,
+      "stock": 24
+    }
   },
   {
     "imgBandera": "BanderaArgentina.png",
     "nombre": "Argentina",
     "grupo": "GrupoC",
-    "camiseta1": "Argentina1.webp",
-    "camiseta2": "Argentina2.webp",
-    "camiseta1Stock": 31,
-    "camiseta2Stock": 32,
-    "camiseta1Precio": 21310,
-    "camiseta2Precio": 22320
+    "camiseta1": {
+      "imgCamiseta": "Argentina1.webp",
+      "precio": 31000,
+      "stock": 31
+    },
+    "camiseta2": {
+      "imgCamiseta": "Argentina2.webp",
+      "precio": 21300,
+      "stock": 32
+    }
   },
   {
     "imgBandera": "BanderaArabiaSaudita.png",
     "nombre": "Arabia Saudita",
     "grupo": "GrupoC",
-    "camiseta1": "ArabiaSaudita1.webp",
-    "camiseta2": "ArabiaSaudita2.webp",
-    "camiseta1Stock": 32,
-    "camiseta2Stock": 33,
-    "camiseta1Precio": 21320,
-    "camiseta2Precio": 22330
+    "camiseta1": {
+      "imgCamiseta": "ArabiaSaudita1.webp",
+      "precio": 21000,
+      "stock": 32
+    },
+    "camiseta2": {
+      "imgCamiseta": "ArabiaSaudita2.webp",
+      "precio": 21500,
+      "stock": 33
+    }
   },
   {
     "imgBandera": "BanderaMexico.png",
     "nombre": "Mexico",
     "grupo": "GrupoC",
-    "camiseta1": "Mexico1.webp",
-    "camiseta2": "Mexico2.webp",
-    "camiseta1Stock": 33,
-    "camiseta2Stock": 34,
-    "camiseta1Precio": 21330,
-    "camiseta2Precio": 22340
+    "camiseta1": {
+      "imgCamiseta": "Mexico1.webp",
+      "precio": 21000,
+      "stock": 32
+    },
+    "camiseta2": {
+      "imgCamiseta": "Mexico2.webp",
+      "precio": 21500,
+      "stock": 33
+    }
   },
   {
     "imgBandera": "BanderaPolonia.png",
     "nombre": "Polonia",
     "grupo": "GrupoC",
-    "camiseta1": "Polonia1.webp",
-    "camiseta2": "Polonia2.webp",
-    "camiseta1Stock": 34,
-    "camiseta2Stock": 35,
-    "camiseta1Precio": 24340,
-    "camiseta2Precio": 25350
+    "camiseta1": {
+      "imgCamiseta": "Polonia1.webp",
+      "precio": 21000,
+      "stock": 32
+    },
+    "camiseta2": {
+      "imgCamiseta": "Polonia2.webp",
+      "precio": 21500,
+      "stock": 33
+    }
   },
   {
     "imgBandera": "BanderaFrancia.png",
     "nombre": "Francia",
     "grupo": "GrupoD",
-    "camiseta1": "Francia1.webp",
-    "camiseta2": "Francia2.webp",
-    "camiseta1Stock": 41,
-    "camiseta2Stock": 42,
-    "camiseta1Precio": 21410,
-    "camiseta2Precio": 22420
+    "camiseta1": {
+      "imgCamiseta": "Francia1.webp",
+      "precio": 21000,
+      "stock": 32
+    },
+    "camiseta2": {
+      "imgCamiseta": "Francia2.webp",
+      "precio": 21500,
+      "stock": 33
+    }
   },
   {
     "imgBandera": "BanderaDinamarca.png",
     "nombre": "Dinamarca",
     "grupo": "GrupoD",
-    "camiseta1": "Dinamarca1.webp",
-    "camiseta2": "Dinamarca2.webp",
-    "camiseta1Stock": 42,
-    "camiseta2Stock": 43,
-    "camiseta1Precio": 21420,
-    "camiseta2Precio": 22430
+    "camiseta1": {
+      "imgCamiseta": "Dinamarca1.webp",
+      "precio": 21000,
+      "stock": 32
+    },
+    "camiseta2": {
+      "imgCamiseta": "Dinamarca2.webp",
+      "precio": 21500,
+      "stock": 33
+    }
   },
   {
     "imgBandera": "BanderaTunez.png",
     "nombre": "Tunez",
     "grupo": "GrupoD",
-    "camiseta1": "Tunez1.webp",
-    "camiseta2": "Tunez2.webp",
-    "camiseta1Stock": 43,
-    "camiseta2Stock": 44,
-    "camiseta1Precio": 21430,
-    "camiseta2Precio": 22440
+    "camiseta1": {
+      "imgCamiseta": "Tunez1.webp",
+      "precio": 21000,
+      "stock": 32
+    },
+    "camiseta2": {
+      "imgCamiseta": "Tunez2.webp",
+      "precio": 21500,
+      "stock": 33
+    }
   },
   {
     "imgBandera": "BanderaAustralia.png",
     "nombre": "Australia",
     "grupo": "GrupoD",
-    "camiseta1": "Australia1.webp",
-    "camiseta2": "Australia2.webp",
-    "camiseta1Stock": 44,
-    "camiseta2Stock": 45,
-    "camiseta1Precio": 24440,
-    "camiseta2Precio": 25450
+    "camiseta1": {
+      "imgCamiseta": "Australia1.webp",
+      "precio": 21000,
+      "stock": 32
+    },
+    "camiseta2": {
+      "imgCamiseta": "Australia2.webp",
+      "precio": 21500,
+      "stock": 33
+    }
   },
   {
     "imgBandera": "BanderaEspaña.png",
     "nombre": "España",
     "grupo": "GrupoE",
-    "camiseta1": "España1.webp",
-    "camiseta2": "España2.webp",
-    "camiseta1Stock": 51,
-    "camiseta2Stock": 52,
-    "camiseta1Precio": 21510,
-    "camiseta2Precio": 22520
+    "camiseta1": {
+      "imgCamiseta": "España1.webp",
+      "precio": 21000,
+      "stock": 32
+    },
+    "camiseta2": {
+      "imgCamiseta": "España2.webp",
+      "precio": 21500,
+      "stock": 33
+    }
   },
   {
     "imgBandera": "BanderaCostaRica.png",
     "nombre": "Costa Rica",
     "grupo": "GrupoE",
-    "camiseta1": "CostaRica1.webp",
-    "camiseta2": "CostaRica2.webp",
-    "camiseta1Stock": 52,
-    "camiseta2Stock": 53,
-    "camiseta1Precio": 21520,
-    "camiseta2Precio": 22530
+    "camiseta1": {
+      "imgCamiseta": "CostaRica1.webp",
+      "precio": 21000,
+      "stock": 32
+    },
+    "camiseta2": {
+      "imgCamiseta": "CostaRica2.webp",
+      "precio": 21500,
+      "stock": 33
+    }
   },
   {
     "imgBandera": "BanderaAlemania.png",
     "nombre": "Alemania",
     "grupo": "GrupoE",
-    "camiseta1": "Alemania1.webp",
-    "camiseta2": "Alemania2.webp",
-    "camiseta1Stock": 53,
-    "camiseta2Stock": 54,
-    "camiseta1Precio": 21530,
-    "camiseta2Precio": 22540
+    "camiseta1": {
+      "imgCamiseta": "Alemania1.webp",
+      "precio": 21000,
+      "stock": 32
+    },
+    "camiseta2": {
+      "imgCamiseta": "Alemania2.webp",
+      "precio": 21500,
+      "stock": 33
+    }
   },
   {
     "imgBandera": "BanderaJapon.png",
     "nombre": "Japón",
     "grupo": "GrupoE",
-    "camiseta1": "Japon1.webp",
-    "camiseta2": "Japon2.webp",
-    "camiseta1Stock": 54,
-    "camiseta2Stock": 55,
-    "camiseta1Precio": 24540,
-    "camiseta2Precio": 25550
+    "camiseta1": {
+      "imgCamiseta": "Japon1.webp",
+      "precio": 21000,
+      "stock": 32
+    },
+    "camiseta2": {
+      "imgCamiseta": "Japon2.webp",
+      "precio": 21500,
+      "stock": 33
+    }
   },
   {
     "imgBandera": "BanderaBelgica.png",
     "nombre": "Belgica",
     "grupo": "GrupoF",
-    "camiseta1": "Belgica1.webp",
-    "camiseta2": "Belgica2.webp",
-    "camiseta1Stock": 61,
-    "camiseta2Stock": 62,
-    "camiseta1Precio": 21610,
-    "camiseta2Precio": 22620
+    "camiseta1": {
+      "imgCamiseta": "Belgica1.webp",
+      "precio": 21000,
+      "stock": 32
+    },
+    "camiseta2": {
+      "imgCamiseta": "Belgica2.webp",
+      "precio": 21500,
+      "stock": 33
+    }
   },
   {
     "imgBandera": "BanderaCanada.png",
     "nombre": "Canada",
     "grupo": "GrupoF",
-    "camiseta1": "Canada1.webp",
-    "camiseta2": "Canada2.webp",
-    "camiseta1Stock": 62,
-    "camiseta2Stock": 63,
-    "camiseta1Precio": 21620,
-    "camiseta2Precio": 22630
+    "camiseta1": {
+      "imgCamiseta": "Canada1.webp",
+      "precio": 21000,
+      "stock": 32
+    },
+    "camiseta2": {
+      "imgCamiseta": "Canada2.webp",
+      "precio": 21500,
+      "stock": 33
+    }
   },
   {
     "imgBandera": "BanderaMarruecos.png",
     "nombre": "Marruecos",
     "grupo": "GrupoF",
-    "camiseta1": "Marruecos1.webp",
-    "camiseta2": "Marruecos2.webp",
-    "camiseta1Stock": 63,
-    "camiseta2Stock": 64,
-    "camiseta1Precio": 21630,
-    "camiseta2Precio": 22640
+    "camiseta1": {
+      "imgCamiseta": "Marruecos1.webp",
+      "precio": 21000,
+      "stock": 32
+    },
+    "camiseta2": {
+      "imgCamiseta": "Marruecos2.webp",
+      "precio": 21500,
+      "stock": 33
+    }
   },
   {
     "imgBandera": "BanderaCroacia.png",
     "nombre": "Croacia",
     "grupo": "GrupoF",
-    "camiseta1": "Croacia1.webp",
-    "camiseta2": "Croacia2.webp",
-    "camiseta1Stock": 64,
-    "camiseta2Stock": 65,
-    "camiseta1Precio": 24640,
-    "camiseta2Precio": 25650
+    "camiseta1": {
+      "imgCamiseta": "Croacia1.webp",
+      "precio": 21000,
+      "stock": 32
+    },
+    "camiseta2": {
+      "imgCamiseta": "Croacia2.webp",
+      "precio": 21500,
+      "stock": 33
+    }
   },
   {
     "imgBandera": "BanderaBrasil.png",
     "nombre": "Brasil",
     "grupo": "GrupoG",
-    "camiseta1": "Brasil1.webp",
-    "camiseta2": "Brasil2.webp",
-    "camiseta1Stock": 71,
-    "camiseta2Stock": 72,
-    "camiseta1Precio": 21710,
-    "camiseta2Precio": 22720
+    "camiseta1": {
+      "imgCamiseta": "Brasil1.webp",
+      "precio": 21000,
+      "stock": 32
+    },
+    "camiseta2": {
+      "imgCamiseta": "Brasil2.webp",
+      "precio": 21500,
+      "stock": 33
+    }
   },
   {
     "imgBandera": "BanderaSerbia.png",
     "nombre": "Serbia",
     "grupo": "GrupoG",
-    "camiseta1": "Serbia1.webp",
-    "camiseta2": "Serbia2.webp",
-    "camiseta1Stock": 72,
-    "camiseta2Stock": 73,
-    "camiseta1Precio": 21720,
-    "camiseta2Precio": 22730
+    "camiseta1": {
+      "imgCamiseta": "Serbia1.webp",
+      "precio": 21000,
+      "stock": 32
+    },
+    "camiseta2": {
+      "imgCamiseta": "Serbia2.webp",
+      "precio": 21500,
+      "stock": 33
+    }
   },
   {
     "imgBandera": "BanderaSuiza.png",
     "nombre": "Suiza",
     "grupo": "GrupoG",
-    "camiseta1": "Suiza1.webp",
-    "camiseta2": "Suiza2.webp",
-    "camiseta1Stock": 73,
-    "camiseta2Stock": 74,
-    "camiseta1Precio": 21730,
-    "camiseta2Precio": 22740
+    "camiseta1": {
+      "imgCamiseta": "Suiza1.webp",
+      "precio": 21000,
+      "stock": 32
+    },
+    "camiseta2": {
+      "imgCamiseta": "Suiza2.webp",
+      "precio": 21500,
+      "stock": 33
+    }
   },
   {
     "imgBandera": "BanderaCamerun.png",
     "nombre": "Camerun",
     "grupo": "GrupoG",
-    "camiseta1": "Camerun1.jpg",
-    "camiseta2": "Camerun2.webp",
-    "camiseta1Stock": 74,
-    "camiseta2Stock": 75,
-    "camiseta1Precio": 24740,
-    "camiseta2Precio": 25750
+    "camiseta1": {
+      "imgCamiseta": "Camerun1.jpg",
+      "precio": 21000,
+      "stock": 32
+    },
+    "camiseta2": {
+      "imgCamiseta": "Camerun2.webp",
+      "precio": 21500,
+      "stock": 33
+    }
   },
   {
     "imgBandera": "BanderaPortugal.png",
     "nombre": "Portugal",
     "grupo": "GrupoH",
-    "camiseta1": "Portugal1.webp",
-    "camiseta2": "Portugal2.webp",
-    "camiseta1Stock": 81,
-    "camiseta2Stock": 82,
-    "camiseta1Precio": 21810,
-    "camiseta2Precio": 22820
+    "camiseta1": {
+      "imgCamiseta": "Portugal1.webp",
+      "precio": 21000,
+      "stock": 32
+    },
+    "camiseta2": {
+      "imgCamiseta": "Portugal2.webp",
+      "precio": 21500,
+      "stock": 33
+    }
   },
   {
     "imgBandera": "BanderaGhana.png",
     "nombre": "Ghana",
     "grupo": "GrupoH",
-    "camiseta1": "Ghana1.webp",
-    "camiseta2": "Ghana2.webp",
-    "camiseta1Stock": 82,
-    "camiseta2Stock": 83,
-    "camiseta1Precio": 21820,
-    "camiseta2Precio": 22830
+    "camiseta1": {
+      "imgCamiseta": "Ghana1.webp",
+      "precio": 21000,
+      "stock": 32
+    },
+    "camiseta2": {
+      "imgCamiseta": "Ghana2.webp",
+      "precio": 21500,
+      "stock": 33
+    }
   },
   {
     "imgBandera": "BanderaUruguay.png",
     "nombre": "Uruguay",
     "grupo": "GrupoH",
-    "camiseta1": "Uruguay1.webp",
-    "camiseta2": "Uruguay2.webp",
-    "camiseta1Stock": 83,
-    "camiseta2Stock": 84,
-    "camiseta1Precio": 21830,
-    "camiseta2Precio": 22840
+    "camiseta1": {
+      "imgCamiseta": "Uruguay1.webp",
+      "precio": 21000,
+      "stock": 32
+    },
+    "camiseta2": {
+      "imgCamiseta": "Uruguay2.webp",
+      "precio": 21500,
+      "stock": 33
+    }
   },
   {
     "imgBandera": "BanderaCoreaDelSur.png",
     "nombre": "Corea Del Sur",
     "grupo": "GrupoH",
-    "camiseta1": "CoreaDelSur1.webp",
-    "camiseta2": "CoreaDelSur2.webp",
-    "camiseta1Stock": 84,
-    "camiseta2Stock": 85,
-    "camiseta1Precio": 24840,
-    "camiseta2Precio": 25850
+    "camiseta1": {
+      "imgCamiseta": "CoreaDelSur1.webp",
+      "precio": 21000,
+      "stock": 32
+    },
+    "camiseta2": {
+      "imgCamiseta": "CoreaDelSur1.webp",
+      "precio": 21500,
+      "stock": 33
+    }
   }
 ]

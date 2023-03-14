@@ -1,10 +1,11 @@
 import { Router } from "express";
 //import ProductsManager from "../dao/fileManagers/productsManager.js";
 import ProductsManager from '../dao/mongoManagers/productsManager.js';
+import UsersManager from "../dao/mongoManagers/UsersManager.js";
 
 const router = Router();
 const productsManager = new ProductsManager();
-
+const usersManager = new UsersManager();
 
 //Cargar productos desde archivo a MongoAtlas
 router.get('/create', async (req, res) => {
@@ -21,6 +22,7 @@ router.get("/", async (req, res) => {
 
   try {
     const productsDB = await productsManager.getAllProducts(limit, page, sort, query);
+    const user = await usersManager.getUserByEmail(req.session.email);
 
     const next = productsDB.hasNextPage ? 
       `http://localhost:3000/api/products?page=${productsDB.nextPage}` : null;
@@ -30,7 +32,7 @@ router.get("/", async (req, res) => {
     const products = productsDB.docs;
 
     if(req.headers.accept && req.headers.accept.includes('text/html')) {
-      res.render('products', { products });
+      res.render('products', { products , user : {first_name: user.first_name, role: user.role}});
     } else {
       res.status(200).json({
         status: 'success',

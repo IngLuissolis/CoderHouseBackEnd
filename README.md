@@ -6,6 +6,24 @@
 
 - Los desafios del Curso completados son los siguientes:
 
+## Desafio Login por Formulario
+
+- Archivos en carpeta:
+
+https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/SegundaEntrega
+
+- Requerimientos:
+
+    - Se genera registro en vista /login utilizando librerias passport, express-session y bcrypt.
+
+    - Al realizar el login se redirecciona directamente a la vista de productos. Se agrega mensaje de bienvenida con datos del usuario.
+
+    - Se agrega rol "administrador" para login email: "adminCoder@coder.com, password:"adminCod3r123".
+
+    - Se implementa boton "logout" que destruye sesión y redirige a la vista login.
+
+
+
 ## Desafio Segunda pre-entrega Proyecto Final
 
 - Archivos en carpeta:
