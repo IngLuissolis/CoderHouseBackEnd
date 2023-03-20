@@ -16,7 +16,8 @@ const usersSchema = new mongoose.Schema({
     }
     ,age: {
         type: Number,
-        required: true
+        required: true,
+        default: 0
     }
     ,password: {
         type: String,
@@ -28,6 +29,11 @@ const usersSchema = new mongoose.Schema({
         enum: ['administrador', 'usuario'],
         default: 'usuario'
     }
+    // ,isGithub: {
+    //     type: Boolean,
+    //     required: true,
+    //     default: false
+    // }
 })
 
 export const userModel = mongoose.model('Users', usersSchema);

@@ -16,6 +16,7 @@ import chatRouter from './routes/chat.router.js';
 import messagesRouter from './routes/messages.router.js';
 import viewsRouter from './routes/views.router.js';
 import usersRouter from './routes/users.router.js';
+import jwtRouter from './routes/jwt.router.js';
 //
 import MessagesManager from './dao/mongoManagers/messagesManager.js';
 //import DBConfig
@@ -48,7 +49,7 @@ app.use(
         secret: 'sessionKey'
         ,resave: false
         ,saveUninitialized: true
-        ,cookie: {maxAge: 15000}
+        ,cookie: {maxAge: 30000}
         ,store: new mongoStore({
             mongoUrl: 'mongodb+srv://ingedusolis:Htkr6Os7ZRlJjzBB@cluster0.7td5aft.mongodb.net/ecommerceCoder?retryWrites=true&w=majority'
         })
@@ -67,6 +68,7 @@ app.use('/chat', chatRouter);
 app.use('/viewsMessages', messagesRouter);
 app.use('/users', usersRouter);
 app.use('/views', viewsRouter);
+app.use('/jwt', jwtRouter);
 
 //Carpeta con archivos publicos para el servidor, el archivo tiene que tener nombre index.js
 app.use(express.static(__dirname + '/public'));

@@ -56,4 +56,17 @@ router.get('/logout', async (req, res) => {
     )
 })
 
+//endpoint va a hacia GitHub desde app
+router.get('/registroGithub', 
+    passport.authenticate('github', {scope: ['user: email']})
+)
+
+//endpoint viene de GitHub
+router.get('/github', passport.authenticate('github'), 
+    async (req, res) => {
+        req.session.email = req.user.email;
+        req.session.password = req.user.password;
+        res.redirect('/api/products');
+})
+
 export default router;

@@ -6,10 +6,23 @@
 
 - Los desafios del Curso completados son los siguientes:
 
+## Desafio Refactor a nuestro Login
+
+- Archivos en carpeta:
+https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/SegundaEntrega
+
+- Requerimientos:
+
+    - Se deberá contar con un hasheo de contraseña utilizando bcrypt
+    - Se deberá contar con una implementación de passport, tanto para register como para login.
+    - Implementar el método de autenticación de GitHub a la vista de login.
+
+    La implementación de los requerimientos se encuentra en archivo https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/SegundaEntrega/src/passport/passportStrategies.js
+
+
 ## Desafio Login por Formulario
 
 - Archivos en carpeta:
-
 https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/SegundaEntrega
 
 - Requerimientos:
