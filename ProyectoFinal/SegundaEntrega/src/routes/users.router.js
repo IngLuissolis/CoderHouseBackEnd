@@ -22,7 +22,7 @@ router.post('/session', (req, res) => {
 //     }
 // })
 
-//registro con passport
+/*registro con passport*/
 router.post('/registro', passport.authenticate('registro'
     , {
         failureRedirect: '/views/errorRegistro'

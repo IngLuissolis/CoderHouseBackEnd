@@ -26,14 +26,18 @@ const usersSchema = new mongoose.Schema({
     ,role: {
         type: String,
         required: true,
-        enum: ['administrador', 'usuario'],
-        default: 'usuario'
+        enum: ['administrador', 'user'],
+        default: 'user'
     }
-    // ,isGithub: {
-    //     type: Boolean,
-    //     required: true,
-    //     default: false
-    // }
+    , cart: {
+        type: [{type: mongoose.Schema.Types.ObjectId
+        , ref:'Carts'}]
+    }
+})
+
+usersSchema.pre('find', function (next) {
+    this.populate('carts');
+    next();
 })
 
 export const userModel = mongoose.model('Users', usersSchema);

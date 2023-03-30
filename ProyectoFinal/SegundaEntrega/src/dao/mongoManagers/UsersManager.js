@@ -22,14 +22,13 @@ export default class UsersManager {
     }
 
     //abcde
-
-
+    
     async loginUser (user) {
         const { email, password } = user;
         try {
             const usuario = await userModel.findOne({email});
             if (usuario) {
-                const isPassword = comparePassword(password, usuario.password);
+                const isPassword = await comparePassword(password, usuario.password);
                 if (isPassword) {
                     // Si el correo electrónico y la contraseña coinciden con las del usuario administrador,
                     // establecemos el campo de rol en "administrador"
@@ -56,7 +55,7 @@ export default class UsersManager {
                 if (email === "adminCoder@coder.com") {
                     user.role = "administrador";
                 } else {
-                    user.role = "usuario";
+                    user.role = "user";
                 }
             }
             return user;

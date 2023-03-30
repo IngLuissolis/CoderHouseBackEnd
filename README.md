@@ -6,6 +6,28 @@
 
 - Los desafios del Curso completados son los siguientes:
 
+## Desafio Segunda Practica Integradora
+
+- Archivos en carpeta:
+https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/SegundaEntrega
+
+- Requerimientos:
+
+    - Crear un modelo User el cual contará con los campos:
+        - first_name:String,
+        - last_name:String,
+        - email:String (único)
+        - age:Number,
+        - password:String(Hash)
+        - cart:Id con referencia a Carts
+        - role:String(default:’user’)
+
+    - Desarrollar las estrategias de Passport para que funcionen con este modelo de usuarios.
+
+    - Modificar el sistema de login del usuario para poder trabajar con session o con jwt (a tu elección).
+
+    - Agregar al router /api/sessions/ la ruta /current, la cual utilizará el modelo de sesión que estés utilizando, para poder devolver en una respuesta el usuario actual.
+
 ## Desafio Refactor a nuestro Login
 
 - Archivos en carpeta:
@@ -17,7 +39,7 @@ https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/Segund
     - Se deberá contar con una implementación de passport, tanto para register como para login.
     - Implementar el método de autenticación de GitHub a la vista de login.
 
-    La implementación de los requerimientos se encuentra en archivo https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/SegundaEntrega/src/passport/passportStrategies.js
+    La implementación de los requerimientos se encuentra en archivo https://github.com/IngLuissolis/CoderHouseBackEnd/blob/main/ProyectoFinal/SegundaEntrega/src/passport/passportStrategies.js
 
 
 ## Desafio Login por Formulario

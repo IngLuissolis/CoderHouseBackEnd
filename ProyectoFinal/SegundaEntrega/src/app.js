@@ -6,9 +6,7 @@ import { Server } from 'socket.io';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import mongoStore from 'connect-mongo';
-//passport
 import passport from 'passport';
-import './passport/passportStrategies.js';
 //importar los archivos de rutas
 import productsRouter from './routes/products.router.js';
 import cartsRouter from './routes/carts.router.js';
@@ -19,8 +17,9 @@ import usersRouter from './routes/users.router.js';
 import jwtRouter from './routes/jwt.router.js';
 //
 import MessagesManager from './dao/mongoManagers/messagesManager.js';
-//import DBConfig
+//import Archivos
 import './dao/dbConfig.js';
+import './passport/passportStrategies.js';
 
 const app = express(); // A partir de aquí, app contendra todas las funcionalidades de express
 const PORT = 3000;
@@ -60,6 +59,7 @@ app.use(
 app.use(passport.initialize());
 //passport va a guardar la informacion de session
 app.use(passport.session());
+app.use(cookieParser());
 
 //Configuración de las rutas
 app.use('/api/products', productsRouter);
@@ -89,8 +89,6 @@ app.get('/realtimeproducts', (req, res) => {
     products = JSON.parse(fs.readFileSync(productsFilePath));
     res.render('realTimeProducts', {products}); //renderiza al inicio products
 })
-
-//ruta para mostrar al cliente chat
 
 
 //Creación de socketServer

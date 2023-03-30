@@ -9,3 +9,15 @@ mongoose.connect(URI, (error) => {
         console.log('Conectado a la base de datos MongoDB Cloud con exito')
     }
 });
+
+// try {
+
+//     await mongoose.connect(URI)
+  
+//     console.log('Conectado con exito a la base de datos')
+  
+//   } catch (error) {
+  
+//     console.log(error)
+  
+//   }

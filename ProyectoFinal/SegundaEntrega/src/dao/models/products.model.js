@@ -27,7 +27,6 @@ const productsSchema = new mongoose.Schema({
             type: Number,
             required: true            
         }
-        //,required: true
     },
     camiseta2: {
         imgCamiseta: {
@@ -42,7 +41,6 @@ const productsSchema = new mongoose.Schema({
             type: Number,
             required: true            
         }
-        //,required: true
     }
 })
 
