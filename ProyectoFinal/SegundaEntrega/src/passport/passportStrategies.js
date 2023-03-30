@@ -99,11 +99,3 @@ passport.deserializeUser( async (id, done) => {
     const user = await userModel.findById(id);
     done(null, user);
 });
-
-/*
-Owned by: @IngLuissolis
-App ID: 305852
-Client ID: Iv1.2abce53972f45f0d
-clientSecret: '931348ebe2ef20f52e99ef112d59712ed919c615'
-*/
-
