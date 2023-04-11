@@ -1,0 +1,25 @@
+<form class="row g-3 m-2" action="api/users/registro" method="post">
+    <h2>REGISTRO</h2>
+    <div class="col-auto">
+        <input type="text" name="first_name" id="first_name" class="form-control" value="first_name"/>
+    </div>
+    <div class="col-auto">
+        <input type="text" name="last_name" id="last_name" class="form-control" value="last_name"/>
+    </div>
+    <div class="col-auto">
+        <input type="email" name="email" id="email" class="form-control" value="email@example.com"/>
+    </div>
+    <div class="col-auto">
+        <input type="text" name="age" id="age" class="form-control" value="age"/>
+    </div>
+    <div class="col-auto">
+        <input type="password" name="password" id="password" class="form-control" placeholder="Password"/>
+    </div>
+    {{!-- Role: <input type="role" name="role" id="role"/> --}}
+    <input type="submit" value="CREAR" class="btn btn-primary mb-3"/>
+</form>
+
+<div class="m-2">
+    <h2>Registrarse con Github</h2>
+    <button class="btn btn-primary mb-3" onclick="location.href='/users/registroGithub'">GITHUB</button>
+</div>

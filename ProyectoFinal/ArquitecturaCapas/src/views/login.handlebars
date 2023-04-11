@@ -1,0 +1,19 @@
+<form class="row g-3 m-2" action="api/users/login" method="post">
+    <h1>LOGIN</h1>
+    <div class="col-auto">
+        <label for="staticEmail2" class="visually-hidden">Email</label>
+        <input type="email" name="email" id="email" class="form-control" value="email@example.com"/>
+    </div>
+    <div class="col-auto">
+        <label for="inputPassword2" class="visually-hidden">Password</label>
+        <input type="password" name="password" id="password" class="form-control" placeholder="Password"/>
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">Confirmar Identidad</button>
+    </div>
+</form>
+
+<div class="m-2">
+    <h2>USUARIO NUEVO?</h2>
+    <button onclick="location.href='/views/registro'" class="btn btn-primary m-2">Ir a registro</button>
+</div>

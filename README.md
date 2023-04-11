@@ -6,6 +6,16 @@
 
 - Los desafios del Curso completados son los siguientes:
 
+## Desafio Arquitectura modelo de Capas
+
+- Archivos en carpeta:
+https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/ArquitecturaCapas
+
+- Requerimientos:
+
+    - El proyecto debe contar con capas de routing, controlador, dao, con nuestras vistas bien separadas y con las responsabilidades correctamente delegadas.
+    - Además, mover del proyecto todas las partes importantes y comprometedoras en un archivo .env para poder leerlo bajo variables de entorno en un archivo config.js
+
 ## Desafio Segunda Practica Integradora
 
 - Archivos en carpeta:
