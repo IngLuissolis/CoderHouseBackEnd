@@ -6,6 +6,15 @@
 
 - Los desafios del Curso completados son los siguientes:
 
+## Desafio 3ra Entrega
+
+- Archivos en carpeta:
+https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/3raEntrega
+
+- Requerimientos:
+
+    - 
+
 ## Desafio Arquitectura modelo de Capas
 
 - Archivos en carpeta:
