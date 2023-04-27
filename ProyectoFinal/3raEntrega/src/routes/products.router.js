@@ -1,12 +1,17 @@
 import { Router } from 'express';
-import { createProductController, getAllProductsController, findOneProductController, deleteOneProductController } from '../controllers/products.controller.js';
-// import { authorize } from '../middlewares/authorize.middleware.js';
+import { createProductController, getAllProductsController
+    , findOneProductController, deleteOneProductController
+    , updateOneProductController } from '../controllers/products.controller.js';
+import { authorize } from '../middlewares/authorize.middleware.js';
 
 const router = new Router();
+const isAdmin = authorize(['admin']);
+const isUser = authorize(['user']);
 
 router.get('/', getAllProductsController);
 router.get('/:id', findOneProductController);
-router.post('/', createProductController);
-router.delete('/:id', deleteOneProductController);
+router.post('/addProduct', isAdmin, createProductController);
+router.delete('/:id', isAdmin, deleteOneProductController);
+router.put('/:id', isAdmin, updateOneProductController);
 
 export default router;

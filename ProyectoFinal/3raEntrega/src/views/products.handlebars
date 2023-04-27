@@ -1,0 +1,25 @@
+<!-- Tarjetas de productos -->
+<h1>Bienvenido {{user.first_name}}</h1>
+<h2>Role: {{user.role}}</h2>
+<button type="button" class="button button-add-to-cart" onclick="location.href='/views'">LOGOUT</button>
+<button type="button" class="button button-add-to-cart" onclick="location.href='/views/addProduct'">Add Product</button>
+<div class="products-cards-container">
+  {{#each products}}
+  <div class="product-card">
+    <div class="product-info">
+      <h2>{{nombre}}</h2>
+      <p>{{grupo}}</p>
+      <p>Precio: {{camiseta1.precio}}</p>
+      <button type="button" class="button button-details" data-product-id="{{_id}}">Detalles</button>
+    </div>
+    <div class="product-buttons d-flex">
+      <form id="add-to-cart-form-{{_id}}" onsubmit="event.preventDefault(); addToCart('64087e4e96e16fad6d58e2dd', '{{_id}}')">
+          <input type="hidden" name="_method" value="POST">
+          <input type="hidden" name="productId" value="{{_id}}">
+          <input type="number" name="quantity" min="1">
+          <button type="submit" class="button button-add-to-cart">Agregar al carrito</button>
+      </form>
+    </div>
+  </div>
+  {{/each}}
+</div>

@@ -1,4 +1,6 @@
-import { createProductService, getAllProductService, findOneProductService, deleteOneProductService } from '../services/products.service.js';
+import { createProductService, getAllProductService, 
+    findOneProductService, deleteOneProductService,
+    updateProductService } from '../services/products.service.js';
 
 export const createProductController = async (req, res) => {
     const productObj = req.body;
@@ -12,8 +14,9 @@ export const createProductController = async (req, res) => {
 
 export const getAllProductsController = async (req, res) => {
     try {
+        const user = JSON.parse(req.cookies.user);
         const products = await getAllProductService();
-        res.json({message: 'Products', products});
+        res.render('products', {products, user});
     } catch (error) {
         res.json({message: 'Error', error});
     }
@@ -38,3 +41,25 @@ export const deleteOneProductController = async (req, res) => {
         res.json({message: 'Error', error});
     }
 }
+
+export const updateOneProductController = async (req, res) => {
+    const { id } = req.params;
+    const productObj = req.body;
+    console.log('productObj: ',productObj);
+  
+    try {
+      // Obtener información actual del producto
+      const product = await findOneProductService(id);
+  
+      if (!product) {
+        return res.status(404).json({ message: 'Product not found' });
+      }
+  
+      // Actualizar información del producto
+      const updatedProduct = await updateProductService(id, productObj);
+  
+      res.json({ message: 'Product updated successfully', product: updatedProduct });
+    } catch (error) {
+      res.status(500).json({ message: 'Error', error });
+    }
+  }

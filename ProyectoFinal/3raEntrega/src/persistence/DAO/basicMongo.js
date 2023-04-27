@@ -39,10 +39,12 @@ export default class BasicMongo {
         }
     }
 
-    // async updateOne(id, obj) {
-    //     try {
-    //         const response = await this.model.updateOne
-    //         return console.log(error);
-    //     }
-    // }
+    async updateOne(id, obj) {
+        try {
+            const response = await this.model.updateOne({ _id: id }, { $set: obj });
+            return response;
+        } catch (error) {
+            return console.log(error);
+        }
+    }
 }

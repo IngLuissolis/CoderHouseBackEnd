@@ -13,3 +13,15 @@ export const errorRegistro = async (req, res) => {
 export const errorLogin = async (req, res) => {
     res.render('errorLogin');
 }
+
+export const products = async (req, res) => {
+    res.render('products');
+}
+
+export const perfil = async (req, res) => {
+    res.render('perfil');
+}
+
+export const addProduct = async (req, res) => {
+    res.render('addProduct');
+}
