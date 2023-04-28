@@ -45,8 +45,6 @@ export const deleteOneProductController = async (req, res) => {
 export const updateOneProductController = async (req, res) => {
     const { id } = req.params;
     const productObj = req.body;
-    console.log('productObj: ',productObj);
-  
     try {
       // Obtener información actual del producto
       const product = await findOneProductService(id);
