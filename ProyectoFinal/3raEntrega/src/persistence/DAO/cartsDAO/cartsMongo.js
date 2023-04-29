@@ -52,6 +52,8 @@ class CartsMongo extends BasicMongo {
         }
       }
 
+      console.log('outOfStockProducts.length: ', outOfStockProducts.length);
+
       if (outOfStockProducts.length > 0) {
         cartDB.products = cartDB.products.filter(
           (product) => !outOfStockProducts.includes(product._id)
@@ -60,24 +62,22 @@ class CartsMongo extends BasicMongo {
         return cartDB;
       }
 
-      const amount = cartDB.products.reduce((product) => {
-        console.log('product.product.camiseta1.precio', product.product.camiseta1.precio);
-        console.log('product.quantity', product.quantity);
-        return product.quantity * product.product.camiseta1.precio;
+      const amount = cartDB.products.reduce((total, product) => {
+        return total + product.quantity * product.product.camiseta1.precio;
       }, 0);
 
       console.log('amount', amount);
-      //
-      // const ticket = await ticketModel.create({
-      //   code: Math.random().toString(36).substring(2),
-      //   purchase_datetime: Date.now(),
-      //   amount,
-      //   purchaser: userEmail,
-      // });
+      
+      const ticket = await ticketModel.create({
+        code: Math.random().toString(36).substring(2),
+        purchase_datetime: Date.now(),
+        amount,
+        //purchaser: userEmail,
+      });
 
-      // //await cartsModel.findByIdAndDelete(cid);
+      await cartsModel.findByIdAndDelete(cid);
 
-      // return ticket;
+      return ticket;
     } catch (error) {
       return error;
     }

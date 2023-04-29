@@ -13,7 +13,7 @@
       <button type="button" class="button button-details" data-product-id="{{_id}}">Detalles</button>
     </div>
     <div class="product-buttons d-flex">
-      <form id="add-to-cart-form-{{_id}}" onsubmit="event.preventDefault(); addToCart('644c1fb2a2b110a490365c04', '{{_id}}')">
+      <form id="add-to-cart-form-{{_id}}" onsubmit="event.preventDefault(); addToCart('644c87c3baaa2025e4053a75', '{{_id}}')">
           <input type="hidden" name="_method" value="POST">
           <input type="hidden" name="productId" value="{{_id}}">
           <input type="number" name="quantity" min="1">
@@ -48,9 +48,6 @@
   });
 
   async function addToCart(cid, pid) {
-
-    //console.log('user', user);
-
     const quantity = document.querySelector(`#add-to-cart-form-${pid} input[name='quantity']`).value;
     const response = await fetch(`/carts/${cid}/products/${pid}`, {
       method: 'POST',
@@ -60,7 +57,7 @@
       body: JSON.stringify({ quantity })
     });
     const result = await response.json();
-    console.log(result);
+    console.log('result: ',result);
   }
 
 </script>
