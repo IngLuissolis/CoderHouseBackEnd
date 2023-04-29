@@ -48,6 +48,9 @@
   });
 
   async function addToCart(cid, pid) {
+
+    //console.log('user', user);
+
     const quantity = document.querySelector(`#add-to-cart-form-${pid} input[name='quantity']`).value;
     const response = await fetch(`/carts/${cid}/products/${pid}`, {
       method: 'POST',
