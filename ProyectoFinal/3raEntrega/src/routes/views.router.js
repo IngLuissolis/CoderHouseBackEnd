@@ -1,18 +1,15 @@
 import { Router } from "express";
-import { login, registro, errorLogin, 
-    errorRegistro, products, perfil, addProduct } from '../controllers/views.controller.js';
-import { jwtValidation } from '../middlewares/jwt.middleware.js';
+import { loginController, registroController, errorLoginController, 
+    errorRegistroController, addProductController, 
+    cartController } from '../controllers/views.controller.js';
 
 const router = Router();
 
-router.get('/', login);
-router.get('/registro', registro);
-router.get('/errorRegistro', errorRegistro);
-router.get('/errorLogin', errorLogin);
-router.get('/addProduct', addProduct);
-
-// router.get('/jwtFront', (req, res) => {
-//     res.render('jwt');
-// })
+router.get('/', loginController);
+router.get('/registro', registroController);
+router.get('/errorRegistro', errorRegistroController);
+router.get('/errorLogin', errorLoginController);
+router.get('/addProduct', addProductController);
+router.get('/cart/:cid', cartController);
 
 export default router;

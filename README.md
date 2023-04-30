@@ -29,7 +29,7 @@ https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/3raEnt
         - En caso de existir una compra no completada, devolver el arreglo con los ids de los productos que no pudieron procesarse. (Cumplido)
         - Una vez finalizada la compra, el carrito asociado al usuario que compró deberá contener sólo los productos que no pudieron comprarse. Es decir, se filtran los que sí se compraron y se quedan aquellos que no tenían disponibilidad. (Cumplido)
 
-    Observaciones: en el caso de agregar un producto al carrito, por el momento se guarda en carrito con _id: '644c87c3baaa2025e4053a75'. Falta implementar que cuando se loguee el usuario se cree un carrito para dicho usuario.
+    Observaciones: Ahora cada vez que se logea un usuario, se crea un carrito y se guarda el _id dentro de user.cart.
 
 
 ## Desafio Arquitectura modelo de Capas

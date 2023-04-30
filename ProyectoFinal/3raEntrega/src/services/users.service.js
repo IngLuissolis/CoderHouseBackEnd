@@ -2,6 +2,7 @@ import usersMongo from '../persistence/DAO/usersDAO/usersMongo.js';
 import { hashPassword, generateToken } from '../utils.js';
 import UsersDBDTO from '../persistence/DTO/usersDTO/usersDB.dto.js';
 import UsersRespDTO from '../persistence/DTO/usersDTO/usersRes.dto.js';
+import { createCartService } from './carts.service.js';
 
 export const createUserService = async (user) => {
     const hashNewPassword = await hashPassword(user.password);
@@ -28,11 +29,18 @@ export const deleteOneUserService = async (id) => {
 }
 
 export const loginUserService = async (user) => {
-    const loginUser = await usersMongo.loginUser(user);
-    if(loginUser) {
-        const token = generateToken(user);
-        return {token, user: loginUser};
-    } else {
-        return null;
-    }
-}
+  const loginUser = await usersMongo.loginUser(user);
+
+  if (loginUser) {
+    const token = generateToken(loginUser);
+    const newCart = await createCartService({ products: [] });
+    const cartId = newCart._id.toString();
+
+    // Agregar el ID del carrito nuevo al arreglo "cart" del usuario
+    loginUser.cart.push(cartId);
+
+    return { token, user: loginUser };
+  } else {
+    return null;
+  }
+};

@@ -1,8 +1,10 @@
 <!-- Tarjetas de productos -->
 <h1>Bienvenido {{user.first_name}}</h1>
 <h2>Role: {{user.role}}</h2>
+<h2>ID cart: {{user.cart}}</h2>
 <button type="button" class="button button-add-to-cart" onclick="location.href='/views'">LOGOUT</button>
-<button type="button" class="button button-add-to-cart" onclick="location.href='/views/addProduct'">Add Product</button>
+<button type="button" class="button button-add-to-cart" onclick="location.href='/views/addProduct'">Agregar Producto</button>
+<button type="button" class="button button-add-to-cart" onclick="location.href='/views/cart/{{user.cart}}'">Ir a carrito</button>
 <div class="products-cards-container">
   {{#each products}}
   <div class="product-card">
@@ -13,7 +15,7 @@
       <button type="button" class="button button-details" data-product-id="{{_id}}">Detalles</button>
     </div>
     <div class="product-buttons d-flex">
-      <form id="add-to-cart-form-{{_id}}" onsubmit="event.preventDefault(); addToCart('644c87c3baaa2025e4053a75', '{{_id}}')">
+      <form id="add-to-cart-form-{{_id}}" onsubmit="event.preventDefault(); addToCart('{{_id}}')">
           <input type="hidden" name="_method" value="POST">
           <input type="hidden" name="productId" value="{{_id}}">
           <input type="number" name="quantity" min="1">
@@ -26,6 +28,8 @@
 
 <!-- Controlador de eventos para el botón de detalles -->
 <script>
+  const cid = "{{user.cart}}";
+
   const detailsButtons = document.querySelectorAll('.button-details');
 
   detailsButtons.forEach((button) => {
@@ -47,7 +51,8 @@
     });
   });
 
-  async function addToCart(cid, pid) {
+  async function addToCart(pid) {
+    console.log('products.handlebars: ', cid);
     const quantity = document.querySelector(`#add-to-cart-form-${pid} input[name='quantity']`).value;
     const response = await fetch(`/carts/${cid}/products/${pid}`, {
       method: 'POST',
