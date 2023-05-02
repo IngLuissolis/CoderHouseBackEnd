@@ -17,6 +17,7 @@ export const getAllProductsController = async (req, res) => {
         const user = JSON.parse(req.cookies.user);
         const products = await getAllProductService();
         res.render('products', {products, user});
+        //console.log('poducts.controller products: ',products);
     } catch (error) {
         res.json({message: 'Error', error});
     }

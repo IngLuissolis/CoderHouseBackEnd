@@ -20,7 +20,8 @@ export const addProductController = async (req, res) => {
 
 export const cartController = async (req, res) => {
     const { cid } = req.params;
-    console.log('views.controller cid: ', cid);
-    console.log('views.controller req: ', req.cookies);
-    res.render('cart');
+    //console.log('views.controller cid: ', cid);
+    //console.log('views.controller req: ', req.cookies);
+    res.redirect(`/carts/${cid}`);
+    //res.render('cart');
 }

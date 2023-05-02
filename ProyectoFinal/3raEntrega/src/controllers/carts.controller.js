@@ -31,7 +31,10 @@ export const findOneCartController = async (req, res) => {
   const { id } = req.params;
   try {
     const cartId = await findOneCartService(id);
-    res.json({ message: "Cart found", cartId });
+    //const cartIdProducts = cartId.products;
+    console.log('carts.controller cartIdProducts: ', cartId);
+    res.render('cart', { cartId });
+    //res.json({ message: "Cart found", cartId });
   } catch (error) {
     res.json({ message: "Error", error });
   }
