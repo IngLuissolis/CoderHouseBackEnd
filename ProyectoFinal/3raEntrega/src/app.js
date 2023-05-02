@@ -7,6 +7,7 @@ import usersRouter from './routes/users.router.js';
 import productsRouter from './routes/products.router.js';
 import viewsRouter from './routes/views.router.js';
 import cartsRouter from './routes/carts.router.js';
+import mockingProductsRouter from './routes/mocking.router.js';
 import './persistence/mongo/mongoConfig.js';
 
 const app = express();
@@ -26,6 +27,7 @@ app.use('/users', usersRouter);
 app.use('/products', productsRouter);
 app.use('/views', viewsRouter);
 app.use('/carts', cartsRouter);
+app.use('/mockingproducts', mockingProductsRouter);
 
 //Carpeta con archivos publicos para el servidor, el archivo tiene que tener nombre index.js
 app.use(express.static(__dirname + '/public'));

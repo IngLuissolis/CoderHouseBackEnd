@@ -5,16 +5,18 @@ const productsSchema = new mongoose.Schema({
     imgBandera: {
         type: String
         //,required: true
-    },
-    nombre: {
+    },nombre: {
         type: String
         ,required: true
-    },
-    grupo: {
+    },grupo: {
         type: String
         ,required: true,
-    },
-    camiseta1: {
+    }
+    ,precio: {
+        type: Number
+        ,required: true,
+    }
+    ,camiseta1: {
         imgCamiseta: {
             type: String
             //,required: true
@@ -25,10 +27,10 @@ const productsSchema = new mongoose.Schema({
         },
         stock: {
             type: Number
-            //,required: true            
+            //,required: true
         }
-    },
-    camiseta2: {
+    }
+    ,camiseta2: {
         imgCamiseta: {
             type: String
             //,required: true

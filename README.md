@@ -6,6 +6,23 @@
 
 - Los desafios del Curso completados son los siguientes:
 
+## Desafio Mocking y manejo de errores
+
+- Archivos en carpeta:
+https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/3raEntrega
+
+    - Se genera módulo de Mocking para el servidor, con el fin de que, al inicializarse pueda generar y entrega 100 productos con el mismo formato que entregaría una petición de Mongo. Endpoint (‘/mockingproducts’)
+
+        - Archivo https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/3raEntrega/src/services/mocking.router.js
+
+    - Se genera un customizador de errores y crea un diccionario para los errores más comunes al crear un producto.
+
+        - Archivo https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/3raEntrega/src/test/checkRequiredFieldsProducts.test.js
+
+
+    Archivo anterior se utiliza como middleware en endpoint '/products/addProducts' de: 
+        - Archivo https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/3raEntrega/src/routes/products.router.js
+
 ## Desafio 3ra Entrega
 
 - Archivos en carpeta:
