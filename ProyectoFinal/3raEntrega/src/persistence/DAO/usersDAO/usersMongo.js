@@ -17,7 +17,7 @@ class UsersMongo extends BasicMongo {
                     // Si el correo electrónico y la contraseña coinciden con las del usuario administrador,
                     // establecemos el campo de rol en "administrador"
                     if (email === "adminCoder@coder.com" && password === "adminCod3r123") {
-                        usuario.role = "administrador";
+                        usuario.role = "admin";
                     }
                     return usuario;
                 }

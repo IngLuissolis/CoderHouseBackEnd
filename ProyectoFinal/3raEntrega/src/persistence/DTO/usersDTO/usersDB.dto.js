@@ -5,5 +5,6 @@ export default class UsersDBDTO {
         this.email = user.email;
         this.age = user.age;
         this.password = user.password;
+        this.role = user.role;
     }
 }
