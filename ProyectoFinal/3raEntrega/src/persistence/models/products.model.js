@@ -14,7 +14,7 @@ const productsSchema = new mongoose.Schema({
     }
     ,precio: {
         type: Number
-        ,required: true,
+        //,required: true
     }
     ,camiseta1: {
         imgCamiseta: {

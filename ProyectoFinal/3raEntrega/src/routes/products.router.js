@@ -11,7 +11,7 @@ const isUser = authorize(['user']);
 
 router.get('/', getAllProductsController);
 router.get('/:id', findOneProductController);
-router.post('/addProduct', checkRequiredFieldsProducts, createProductController);
+router.post('/addProduct', isAdmin, checkRequiredFieldsProducts, createProductController);
 router.delete('/:id', isAdmin, deleteOneProductController);
 router.put('/:id', isAdmin, updateOneProductController);
 

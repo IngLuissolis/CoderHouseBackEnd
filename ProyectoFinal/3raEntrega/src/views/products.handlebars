@@ -5,6 +5,7 @@
 <button type="button" class="button button-add-to-cart" onclick="location.href='/views'">LOGOUT</button>
 <button type="button" class="button button-add-to-cart" onclick="location.href='/views/addProduct'">Agregar Producto</button>
 <button type="button" class="button button-add-to-cart" onclick="location.href='/views/cart/{{user.cart}}'">Ir a carrito</button>
+<button type="button" class="button button-add-to-cart" onclick="location.href='/carts/{{user.cart}}/purchase'">Generar Ticket</button>
 <div class="products-cards-container">
   {{#each products}}
   <div class="product-card">
