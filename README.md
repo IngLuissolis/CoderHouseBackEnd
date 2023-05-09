@@ -6,6 +6,34 @@
 
 - Los desafios del Curso completados son los siguientes:
 
+## Desafio Implementación de Logger
+
+- Archivos en carpeta:
+https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/3raEntrega
+
+    - Se define un sistema de niveles que tenga la siguiente prioridad (de menor a mayor):
+    debug, http, info, warning, error, fatal
+
+    - Se implementa un logger para desarrollo y un logger para producción, el logger de desarrollo loggea a partir del nivel debug, sólo en consola
+
+    - el logger del entorno productivo loggea sólo a partir de nivel info.
+
+            - Archivo de implementación:
+        https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/3raEntrega/src/utils/winston.js
+
+    - el logger envia en un transporte de archivos a partir del nivel de error en un nombre “errors.log”
+
+            - Archivo 'errors.log' se guarda en carpeta: 
+        https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/3raEntrega/src/logs
+
+    - Se agregan logs de valor alto en los puntos importantes del servidor (errores, advertencias, etc) y se modifican los console.log() habituales que tenemos para que se muestren todo a partir de winston.
+
+    - Se Crea un endpoint /loggerTest que permite probar todos los logs.
+
+            - Archivo de implementación: 
+        https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/3raEntrega/src/app.js
+
+
 ## Desafio Mocking y manejo de errores
 
 - Archivos en carpeta:

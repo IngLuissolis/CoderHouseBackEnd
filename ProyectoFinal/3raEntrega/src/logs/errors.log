@@ -1,0 +1,20 @@
+{
+  message: 'Este es un mensaje de error',
+  level: '\x1B[35merror\x1B[39m',
+  timestamp: '2023-05-08T00:08:36.873Z'
+}
+{
+  message: 'Este es un mensaje de fatal',
+  level: '\x1B[31mfatal\x1B[39m',
+  timestamp: '2023-05-08T00:08:36.874Z'
+}
+{
+  message: 'Este es un mensaje de error',
+  level: '\x1B[35merror\x1B[39m',
+  timestamp: '2023-05-08T00:09:01.491Z'
+}
+{
+  message: 'Este es un mensaje de fatal',
+  level: '\x1B[31mfatal\x1B[39m',
+  timestamp: '2023-05-08T00:09:01.492Z'
+}

@@ -1,9 +1,10 @@
 import mongoose from "mongoose";
 import config from "../../config.js";
+import logger from "../../utils/winston.js";
 
 try {
     await mongoose.connect(config.MONGOURL);
-    console.log("Conectado a MongoDB!!!");
+    logger.info("Conectado a MongoDB!!!");
 } catch (error) {
-    console.log(error);
+    logger.error(error);
 }
