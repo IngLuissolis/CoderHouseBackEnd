@@ -6,6 +6,71 @@
 
 - Los desafios del Curso completados son los siguientes:
 
+## Desafio 3era Practica Integradora
+
+- Archivos en carpeta:
+https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/3raPracticaIntegradora
+
+- Requerimientos:
+
+    - Realizar un sistema de recuperación de contraseña, la cual envíe por medio de un correo un botón que redireccione a una página para restablecer la contraseña (no recuperarla).
+
+        - link del correo debe expirar después de 5 min de enviado.
+        - Si se trata de restablecer la contraseña con la misma contraseña del usuario, debe impedirlo e indicarle que no se puede colocar la misma contraseña
+        - Si el link expiró, debe redirigir a una vista que le permita generar nuevamente el correo de restablecimiento, el cual contará con una nueva duración de 5 min.
+
+        - Archivos de implementación:
+            - https://github.com/IngLuissolis/CoderHouseBackEnd/blob/main/ProyectoFinal/3raPracticaIntegradora/src/utils/nodemailer.js
+
+            - https://github.com/IngLuissolis/CoderHouseBackEnd/blob/main/ProyectoFinal/3raPracticaIntegradora/src/routes/messages.router.js
+
+            - https://github.com/IngLuissolis/CoderHouseBackEnd/blob/main/ProyectoFinal/3raPracticaIntegradora/src/routes/views.router.js
+
+            -  https://github.com/IngLuissolis/CoderHouseBackEnd/blob/main/ProyectoFinal/3raPracticaIntegradora/src/controllers/views.controller.js
+
+            - https://github.com/IngLuissolis/CoderHouseBackEnd/blob/main/ProyectoFinal/3raPracticaIntegradora/src/views/linkReestablecer.handlebars
+
+            - https://github.com/IngLuissolis/CoderHouseBackEnd/blob/main/ProyectoFinal/3raPracticaIntegradora/src/routes/cambiarPassword.router.js
+
+    - Establecer un nuevo rol para el schema del usuario llamado “premium” el cual estará habilitado también para crear productos:
+
+        - Archivos de implementación:
+
+            - https://github.com/IngLuissolis/CoderHouseBackEnd/blob/main/ProyectoFinal/3raPracticaIntegradora/src/persistence/models/users.model.js
+
+    - Modificar el schema de producto para contar con un campo “owner”, el cual haga referencia a la persona que creó el producto
+        - Si un producto se crea sin owner, se debe colocar por defecto “admin”.
+        - El campo owner deberá guardar sólo el correo electrónico (o _id, lo dejamos a tu conveniencia) del usuario que lo haya creado (Sólo podrá recibir usuarios premium)
+
+        - Archivos de implementación:
+
+            - https://github.com/IngLuissolis/CoderHouseBackEnd/blob/main/ProyectoFinal/3raPracticaIntegradora/src/persistence/models/products.model.js
+
+            - https://github.com/IngLuissolis/CoderHouseBackEnd/blob/main/ProyectoFinal/3raPracticaIntegradora/src/persistence/DAO/productsDAO/productsMongo.js
+
+            - https://github.com/IngLuissolis/CoderHouseBackEnd/blob/main/ProyectoFinal/3raPracticaIntegradora/src/routes/products.router.js
+
+    - Modificar los permisos de modificación y eliminación de productos para que:
+        - Un usuario premium sólo pueda borrar los productos que le pertenecen.
+        - El admin pueda borrar cualquier producto, aún si es de un owner.
+
+        - Archivos de implementación: 
+
+            - https://github.com/IngLuissolis/CoderHouseBackEnd/blob/main/ProyectoFinal/3raPracticaIntegradora/src/controllers/products.controller.js 
+            (function deleteOneProductController)
+
+    - Además, modificar la lógica de carrito para que un usuario premium NO pueda agregar a su carrito un producto que le pertenece. (No implentado)
+
+    - Implementar una nueva ruta en el router de api/users, la cual será /api/users/premium/:uid la cual permitirá cambiar el rol de un usuario, de “user” a “premium” y viceversa.
+
+        - Archivos de implementación:
+
+            - https://github.com/IngLuissolis/CoderHouseBackEnd/blob/main/ProyectoFinal/3raPracticaIntegradora/src/routes/users.router.js
+
+            - https://github.com/IngLuissolis/CoderHouseBackEnd/blob/main/ProyectoFinal/3raPracticaIntegradora/src/controllers/users.controller.js
+            (function changeRoleController)
+        
+
 ## Desafio Implementación de Logger
 
 - Archivos en carpeta:

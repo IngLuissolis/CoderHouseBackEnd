@@ -1,0 +1,15 @@
+<!-- Tarjetas de productos -->
+<h1>Bienvenido al carrito</h1>
+<h2>{{cartId}}</h2>
+<div class="products-cards-container">
+    {{#each cartId}}
+    <div class="product-card">
+        <div class="product-info">
+            <h2>{{quantity}}</h2>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+
+<button type="button" class="button button-add-to-cart" onclick="location.href='/products'">Volver a Catalogo</button>
