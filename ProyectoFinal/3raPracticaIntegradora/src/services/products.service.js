@@ -8,10 +8,11 @@ export const createProductService = async (product, user) => {
 
 export const getAllProductService = async () => {
     const products = await productsMongo.findAll();
-    return products.map(product => ({
-        ...product._doc,
-        _id: product._id.toString() // convertir _id a string
-      }));
+    return products;
+    // return products.map(product => ({
+    //     ...product._doc,
+    //     _id: product._id.toString() // convertir _id a string
+    //   }));
 }
 
 export const findOneProductService = async (id) => {

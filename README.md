@@ -6,6 +6,38 @@
 
 - Los desafios del Curso completados son los siguientes:
 
+## Desafio Documentar API
+
+- Archivos en carpeta:
+https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/3raPracticaIntegradora
+
+- Requerimientos:
+
+    - Realizar la configuración necesaria para tener documentado tu proyecto final a partir de Swagger.
+
+        - ruta: http://localhost:3000/docs/
+
+        - Archivos de Implementación en carpeta:
+
+            - https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/3raPracticaIntegradora/src/docs/routes
+            - https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/3raPracticaIntegradora/src/utils/swaggerSpecs.js
+
+    - Se debe tener documentado el módulo de productos.
+        - Archivo de Implementación en carpeta: 
+        https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/3raPracticaIntegradora/src/docs/routes/products/products.yaml
+
+    - Se debe tener documentado el módulo de carrito
+        - Archivo de Implementación en carpeta:
+        https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/3raPracticaIntegradora/src/docs/routes/products/carts.yaml
+
+    - Consideraciones:
+        - Tener en cuenta que para crear producto y acceder a ruta:
+         router.post('/addProduct', authorize(['admin', 'premium']), createProductController);
+         se requiere token de autorizacion, es decir, hay que logearse con email y password valido y tener rol admin o premium.
+        - Lo mismo para rutas:
+            - router.delete('/:id', authorize(['admin', 'premium']), deleteOneProductController);
+            - router.put('/:id', authorize(['admin']),updateOneProductController);
+
 ## Desafio 3era Practica Integradora
 
 - Archivos en carpeta:

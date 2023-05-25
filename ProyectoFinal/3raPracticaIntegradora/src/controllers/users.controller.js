@@ -49,9 +49,10 @@ export const loginUserController = async (req, res) => {
     if (email && password) {
       const result = await loginUserService(user);
       if (result && result.token) {
+        console.log('User token', result.token);
         res.cookie("token", result.token, { httpOnly: true });
         res.cookie("user", JSON.stringify(result.user), { httpOnly: true });
-        res.redirect("/products");
+        res.render("products");
       } else {
         res.redirect("/views/errorLogin");
       }

@@ -13,6 +13,10 @@ import cambiarPasswordRouter from './routes/cambiarPassword.router.js';
 import './persistence/mongo/mongoConfig.js';
 import logger from './utils/winston.js';
 
+import swaggerUi from 'swagger-ui-express';
+import { swaggerSetup } from './utils/swaggerSpecs.js';
+
+//
 const app = express();
 const PORT = config.PORT;
 
@@ -33,6 +37,8 @@ app.use('/carts', cartsRouter);
 app.use('/mockingproducts', mockingProductsRouter);
 app.use('/messages', messagesRouter);
 app.use('/cambiarPassword', cambiarPasswordRouter);
+//swagger documentation endpoint
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSetup));
 
 //Carpeta con archivos publicos para el servidor, el archivo tiene que tener nombre index.js
 app.use(express.static(__dirname + '/public'));
@@ -58,3 +64,4 @@ app.get('/loggerTest', (req, res) => {
   
     res.send('Logs enviados al logger');
   });
+

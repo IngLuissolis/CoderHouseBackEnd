@@ -8,5 +8,8 @@ export default {
     COOKIE_SECRET: process.env.COOKIE_SECRET,
     NODE_ENV: process.env.NODE_ENV,
     GMAIL_PASSWORD: process.env.GMAIL_PASSWORD,
-    GMAIL_USER: process.env.GMAIL_USER
+    GMAIL_USER: process.env.GMAIL_USER,
+    TWILIO_SID: process.env.TWILIO_SID,
+    TWILIO_AUTH_TOKEN: process.env.TWILIO_AUTH_TOKEN,
+    TWILIO_PHONE_NUMBER: process.env.TWILIO_PHONE_NUMBER
 }
