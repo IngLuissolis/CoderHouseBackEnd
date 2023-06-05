@@ -6,6 +6,25 @@
 
 - Los desafios del Curso completados son los siguientes:
 
+## Desafio Modulo Testing para Proyecto Final
+
+- Archivos en carpeta:
+https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/3raPracticaIntegradora
+
+- Requerimientos:
+
+    - Se deben incluir por lo menos 3 tests desarrollados para
+        - Router de products.
+        - Router de carts.
+        - Router de users.
+    
+    - Archivo implementado:
+
+        - https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/3raPracticaIntegradora/test/supertest.test.js
+
+        - script: "npm test" (tener en cuenta que servidor se debe estar ejecutando (script: "npm start"))
+
+
 ## Desafio Documentar API
 
 - Archivos en carpeta:

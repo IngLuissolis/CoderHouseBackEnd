@@ -10,11 +10,10 @@ import cartsRouter from './routes/carts.router.js';
 import mockingProductsRouter from './routes/mocking.router.js';
 import messagesRouter from './routes/messages.router.js';
 import cambiarPasswordRouter from './routes/cambiarPassword.router.js';
-import './persistence/mongo/mongoConfig.js';
 import logger from './utils/winston.js';
-
 import swaggerUi from 'swagger-ui-express';
 import { swaggerSetup } from './utils/swaggerSpecs.js';
+import './persistence/mongo/mongoConfig.js';
 
 //
 const app = express();

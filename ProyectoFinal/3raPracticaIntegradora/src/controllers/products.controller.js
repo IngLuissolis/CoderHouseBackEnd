@@ -4,7 +4,11 @@ import { createProductService, getAllProductService,
 
 export const createProductController = async (req, res) => {
     const productObj = req.body;
+
     const user = JSON.parse(req.cookies.user);
+    //const user = req.cookies.user;
+
+    //console.log('user: ', user);
     try {
         const newProduct = await createProductService(productObj, user);
         res.json({message: 'Product created successfully', product: newProduct});
@@ -37,8 +41,10 @@ export const findOneProductController = async (req, res) => {
 
 export const deleteOneProductController = async (req, res) => {
     const { id } = req.params;
-    const userRole = JSON.parse(req.cookies.user).role;
-    const userEmail = JSON.parse(req.cookies.user).email;
+    console.log('Products Controller userRole:', JSON.parse(req.cookies.user.role));
+    const userRole = JSON.parse(req.cookies.user.role);
+    const userEmail = JSON.parse(req.cookies.user.email);
+    console.log('Products Controller:', userRole, ' - ', userEmail);
     const productId = await findOneProductService(id);
     const productOwner = productId.owner; // Función para obtener el propietario del producto
 
