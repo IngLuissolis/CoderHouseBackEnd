@@ -1,0 +1,7 @@
+tags:
+  - name: Users
+    description: Documentation for users endpoints
+  - name: Products
+    description: Documentation for products endpoints
+  - name: Carts
+    description: Documentation for carts endpoints

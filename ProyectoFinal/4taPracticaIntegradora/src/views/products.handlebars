@@ -1,0 +1,95 @@
+<!-- Tarjetas de productos -->
+<h1>Bienvenido {{user.first_name}}</h1>
+<h2>Role: {{user.role}}</h2>
+<h2>ID cart: {{user.cart}}</h2>
+<button type="button" class="btn btn-primary mb-3" onclick="location.href='/views'">LOGOUT</button>
+<button type="button" class="btn btn-primary mb-3" onclick="location.href='/views/addProduct'">Agregar Producto</button>
+<button type="button" class="btn btn-primary mb-3" onclick="location.href='/views/cart/{{user.cart}}'">Ir a carrito</button>
+<button type="button" class="btn btn-primary mb-3" onclick="location.href='/carts/{{user.cart}}/purchase'">Generar Ticket</button>
+<button type="button" class="btn btn-primary mb-3" onclick="location.href='/messages'">Enviar link Recuperación</button>
+<div class="products-cards-container">
+  {{#each products}}
+  <div class="product-card">
+    <div class="product-info">
+      <h2>{{nombre}}</h2>
+      <p>{{grupo}}</p>
+      <p>Precio: {{precio}}</p>
+      <p>Owner: {{owner}}</p>
+      <button type="button" class="button button-details" data-product-id="{{_id}}">Detalles</button>
+    </div>
+    <div class="product-buttons d-flex">
+      <form id="add-to-cart-form-{{_id}}" onsubmit="event.preventDefault(); addToCart('{{_id}}')">
+          <input type="hidden" name="_method" value="POST">
+          <input type="hidden" name="productId" value="{{_id}}">
+          <input type="number" name="quantity" min="1">
+          <button type="submit" class="button button-add-to-cart">Agregar al carrito</button>
+      </form>
+      <div>
+        <button type="button" class="btn btn-primary mb-3" onclick="deleteProduct('{{_id}}')">Eliminar</button>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>
+
+<!-- Controlador de eventos para el botón de detalles -->
+<script>
+  const cid = "{{user.cart}}";
+
+  const detailsButtons = document.querySelectorAll('.button-details');
+
+  detailsButtons.forEach((button) => {
+    button.addEventListener('click', async () => {
+      const productId = button.dataset.productId;
+
+      const response = await fetch(`/products/${productId}`);
+      
+      const product = await response.json();
+
+      Swal.fire({
+        title: product.productId.nombre,
+        html: `
+          <p>${product.productId.grupo}</p>
+          <p>Precio: ${product.productId.precio}</p>
+        `,
+        confirmButtonText: 'Cerrar',
+      });
+    });
+  });
+
+  async function addToCart(pid) {
+    console.log('products.handlebars: ', cid);
+    const quantity = document.querySelector(`#add-to-cart-form-${pid} input[name='quantity']`).value;
+    const response = await fetch(`/carts/${cid}/products/${pid}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ quantity })
+    });
+    const result = await response.json();
+    console.log('result: ',result);
+  }
+
+  async function deleteProduct(productId) {
+    console.log('delete product: ', productId);
+    const response = await fetch(`/products/${productId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(response => {
+      if (response.ok) {
+        // El producto se eliminó correctamente
+        // Realizar cualquier acción adicional o redireccionar si es necesario
+      } else {
+        // No se pudo eliminar el producto
+        // Manejar el error o mostrar un mensaje de error al usuario
+      }
+    })
+    .catch(error => {
+      // Manejar el error de la solicitud
+    });
+  }
+
+</script>

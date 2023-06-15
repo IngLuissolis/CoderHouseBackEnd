@@ -1,0 +1,78 @@
+paths:
+  /carts:
+    get:
+      summary: Obtener todos los carritos
+      tags:
+        - Carts
+      responses:
+        '200':
+          description: Ok
+        '500':
+          description: Error del servidor
+    post:
+      tags:
+        - Carts
+      summary: Crea un nuevo carrito
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CartCreate'
+      responses:
+        '200':
+          description: Carrito creado correctamente
+        '400':
+          description: Error en la solicitud o datos inválidos
+        '500':
+          description: Error del servidor
+  /carts/{id}:
+    get:
+      summary: Obtiene un Carrito por ID
+      parameters:
+        - name: id
+          in: path
+          description: identificador Carrito
+          required: true
+      tags:
+        - Carts
+      responses:
+        '200':
+          description: Ok
+        '400':
+          description: Carrito no encontrado
+        '500':
+          description: Error del servidor
+    delete:
+      summary: Elimina un carrito por ID
+      tags:
+        - Carts
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Carrito Eliminado
+        '404':
+          description: Carrito no encontrado
+
+components:
+  schemas:
+    CartCreate:
+      type: object
+      properties:
+        products:
+          type: array
+          items:
+            type: object
+            properties:
+              product:
+                type: string
+                format: uuid
+              quantity:
+                type: number
+      required:
+        - products

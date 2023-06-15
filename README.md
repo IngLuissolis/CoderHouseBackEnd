@@ -6,6 +6,97 @@
 
 - Los desafios del Curso completados son los siguientes:
 
+## Desafio Cuarta Practica Integradora
+
+- Archivos en carpeta:
+https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/4taPracticaIntegradora
+
+
+Usuarios creados para realizar Test:
+
+    - role: user
+
+        - _id: 648b7fece5c1bba269de770f
+        - password: 12345
+
+    - role: premium
+
+        - _id: 648b5b7b35f4b8ff1c5f8fc1
+        - password: 12345
+
+    - role: admin
+
+        - _id: 648b8020e5c1bba269de7711
+        - password: 12345
+
+    ruta de Test petición POST para subir archivos con mulder:
+
+        - http://localhost:3000/users/648b8020e5c1bba269de7711/documents
+
+        Configuración:
+
+            - Headers:
+                - header: multipart/form-data
+            - Body:
+                - Files
+                    - profileImage: profileImageTest.png
+                    - document: DocumentTest.png
+                    -productImage: CamisetasJpegTest.jpg
+
+- Requerimientos:
+
+    - Mover la ruta suelta /api/users/premium/:uid a un router específico para usuarios en /api/users/
+
+        - Archivo de Implementación:
+
+            - https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/4taPracticaIntegradora/src/routes/usersPremium.router.js
+
+            - Dicho archivo se llama desde https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/4taPracticaIntegradora/src/routes/users.router.js
+
+    - Modificar el modelo de User para que cuente con una nueva propiedad “documents” el cual será un array que contenga los objetos con las siguientes propiedades:
+            name: String (Nombre del documento).
+            reference: String (link al documento).
+
+    - Además, agregar una propiedad al usuario llamada “last_connection”, la cual deberá modificarse cada vez que el usuario realice un proceso de login y logout
+        
+        - Archivo de Implementación:
+
+            - https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/4taPracticaIntegradora/src/persistence/models/users.model.js
+
+        - La modificación de "last_connection" se realizar en archivo 
+            - https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/4taPracticaIntegradora/src/services/users.service.js
+
+            cuando el usuario realiza proceso de login, falta implementar para proceso de logout.
+
+    - Crear un endpoint en el router de usuarios users/:id/documents con el método POST que permita subir uno o múltiples archivos. Utilizar el middleware de Multer para poder recibir los documentos que se carguen y actualizar en el usuario su status para hacer saber que ya subió algún documento en particular.
+
+        - Archivos de Implementación:
+
+            - https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/4taPracticaIntegradora/src/routes/users.router.js
+
+            - https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/4taPracticaIntegradora/src/middlewares/multer.middleware.js
+
+        - Tener en cuenta que solo se puede cargar un archivo. Para subir mas archivos modificar variable maxCount en ruta:
+
+            - router.post('/:id/documents', upload.fields([
+    { name: 'document', maxCount: 1 },
+    { name: 'profileImage', maxCount: 1 },
+    { name: 'productImage', maxCount: 1 }
+  ]), uploadDocumentsController);
+
+  - El middleware de multer deberá estar modificado para que pueda guardar en diferentes carpetas los diferentes archivos que se suban. Si se sube una imagen de perfil, deberá guardarlo en una carpeta profiles, en caso de recibir la imagen de un producto, deberá guardarlo en una carpeta products, mientras que ahora al cargar un documento, multer los guardará en una carpeta documents.
+
+    - Archivo de Implementación:
+
+        - https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/4taPracticaIntegradora/src/middlewares/multer.middleware.js
+
+ - Modificar el endpoint /users/premium/:id para que sólo actualice al usuario a premium si ya ha cargado los siguientes documentos:
+    - Identificación, Comprobante de domicilio, Comprobante de estado de cuenta.
+    - En caso de llamar al endpoint, si no se ha terminado de cargar la documentación, devolver un error indicando que el usuario no ha terminado de procesar su documentación. (Sólo si quiere pasar de user a premium, no al revés)
+
+
+        - No implementado, no se entiende requerimiento.
+
 ## Desafio Modulo Testing para Proyecto Final
 
 - Archivos en carpeta:
@@ -22,7 +113,7 @@ https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/3raPra
 
         - https://github.com/IngLuissolis/CoderHouseBackEnd/tree/main/ProyectoFinal/3raPracticaIntegradora/test/supertest.test.js
 
-        - script: "npm test" (tener en cuenta que servidor se debe estar ejecutando (script: "npm start"))
+        - script: "npm test" (tener en cuenta que servidor se debe estar ejecutando en otro terminal (script: "npm start"))
 
 
 ## Desafio Documentar API
