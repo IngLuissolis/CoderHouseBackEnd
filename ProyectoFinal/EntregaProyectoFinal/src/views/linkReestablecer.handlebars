@@ -1,0 +1,15 @@
+<form class="row g-3 m-2" action="/api/cambiarPassword" method="post">
+    <h2>Reestablecer Contraseña</h2>
+    <div class="col-auto">
+        <label for="inputPassword2" class="visually-hidden">Password</label>
+        <input type="password" name="password" id="password" class="form-control" placeholder="Password"/>
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">Cambiar Password</button>
+    </div>
+    {{#if samePasswordError}}
+        <div class="col-auto">
+            <p class="text-danger">No puedes utilizar la misma contraseña.</p>
+        </div>
+    {{/if}}
+</form>

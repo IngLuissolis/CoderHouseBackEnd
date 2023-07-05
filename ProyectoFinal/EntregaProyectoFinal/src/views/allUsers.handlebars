@@ -1,0 +1,100 @@
+<h2>Peticiones Proyecto Final</h2>
+
+<div class="m-2">
+    <button onclick="fetchUsers()" class="btn btn-primary m-2">Solicitud Get All Users</button>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Email</th>
+      <th>Rol</th>
+    </tr>
+  </thead>
+  <tbody id="usersTableBody"></tbody>
+</table>
+
+
+<div class="m-2">
+    <button onclick="inactiveUsers()" class="btn btn-primary m-2">Solicitud Delete Inactive Users</button>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Email</th>
+      <th>Rol</th>
+    </tr>
+  </thead>
+  <tbody id="usersTableBodyInactiveUsers"></tbody>
+</table>
+
+<script>
+  function fetchUsers() {
+    fetch('/api/users/')
+      .then(response => response.json())
+      .then(data => {
+        const usersTableBody = document.getElementById('usersTableBody'); // Obtener el cuerpo de la tabla de usuarios
+        usersTableBody.innerHTML = ''; // Limpiar el contenido existente
+
+        data.users.forEach(user => {
+          const row = document.createElement('tr');
+          const firstNameCell = document.createElement('td');
+          const lastNameCell = document.createElement('td');
+          const emailCell = document.createElement('td');
+          const roleCell = document.createElement('td');
+
+          firstNameCell.textContent = user.first_name;
+          lastNameCell.textContent = user.last_name;
+          emailCell.textContent = user.email;
+          roleCell.textContent = user.role;
+
+          row.appendChild(firstNameCell);
+          row.appendChild(lastNameCell);
+          row.appendChild(emailCell);
+          row.appendChild(roleCell);
+
+          usersTableBody.appendChild(row);
+        });
+      })
+      .catch(error => {
+        console.error('Error al obtener los usuarios:', error);
+      });
+  }
+
+  function inactiveUsers() {
+    fetch('/api/users/inactiveUsers')
+      .then(response => response.json())
+      .then(data => {
+        const usersTableBody = document.getElementById('usersTableBodyInactiveUsers'); // Obtener el cuerpo de la tabla de usuarios
+        usersTableBody.innerHTML = ''; // Limpiar el contenido existente
+
+        data.users.forEach(user => {
+          const row = document.createElement('tr');
+          const firstNameCell = document.createElement('td');
+          const lastNameCell = document.createElement('td');
+          const emailCell = document.createElement('td');
+          const roleCell = document.createElement('td');
+
+          firstNameCell.textContent = user.first_name;
+          lastNameCell.textContent = user.last_name;
+          emailCell.textContent = user.email;
+          roleCell.textContent = user.role;
+
+          row.appendChild(firstNameCell);
+          row.appendChild(lastNameCell);
+          row.appendChild(emailCell);
+          row.appendChild(roleCell);
+
+          usersTableBody.appendChild(row);
+        });
+      })
+      .catch(error => {
+        console.error('Error al eliminar usuarios inactivos:', error);
+      });
+  }
+</script>

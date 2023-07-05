@@ -1,0 +1,130 @@
+paths:
+  /products:
+    get:
+      summary: Obtener todos los productos
+      tags:
+        - Products
+      responses:
+        '200':
+          description: Ok
+        '500':
+          description: Error del servidor
+  /products/{id}:
+    get:
+      summary: Obtiene un Producto por ID
+      parameters:
+        - name: id
+          in: path
+          description: identificador Producto
+          required: true
+      tags:
+        - Products
+      responses:
+        '200':
+          description: Ok
+        '400':
+          description: Producto no encontrado
+        '500':
+          description: Error del servidor
+    put:
+      summary: Actualiza un producto por ID
+      tags:
+        - Products
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+        - in: header
+          name: Authorization
+          description: Token de autorización
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductUpdate'  # Reemplaza 'ProductUpdateInput' con el esquema correspondiente para la entrada de actualización de productos
+      responses:
+        200:
+          description: OK
+        403:
+          description: No tienes autorización para actualizar este producto
+        404:
+          description: Producto no encontrado
+    delete:
+      summary: Elimina un producto por ID
+      tags:
+        - Products
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Producto Eliminado
+        '404':
+          description: Producto no encontrado
+  /products/addProduct:
+    post:
+      summary: Crea un nuevo Producto
+      tags:
+        - Products
+      parameters:
+        - in: header
+          name: Authorization
+          description: Token de autorización
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Product'
+      responses:
+        200:
+          description: Producto Creado Correctamente
+        403:
+          description: No tienes autorización para actualizar este producto
+
+
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        nombre:
+          type: string
+        grupo:
+          type: string
+        precio:
+          type: number
+        owner:
+          type: string
+          default: admin
+      required:
+        - nombre
+        - grupo
+    ProductUpdate:
+      type: object
+      properties:
+        nombre:
+          type: string
+          default: Argentina
+        grupo:
+          type: string
+          default: grupoA
+        precio:
+          type: number
+          default: 15000
+        owner:
+          type: string
+          default: admin
+      required:
+        - nombre
+        - grupo

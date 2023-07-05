@@ -3,6 +3,7 @@ import handlebars from 'express-handlebars';
 import cookieParser from 'cookie-parser';
 import { __dirname } from './utils.js';
 import config from './config.js';
+import cors from 'cors';
 
 import usersRouter from './routes/users.router.js';
 import productsRouter from './routes/products.router.js';
@@ -11,6 +12,7 @@ import cartsRouter from './routes/carts.router.js';
 import mockingProductsRouter from './routes/mocking.router.js';
 import messagesRouter from './routes/messages.router.js';
 import cambiarPasswordRouter from './routes/cambiarPassword.router.js';
+import paymentsRouter from './routes/payment.router.js';
 
 import logger from './utils/winston.js';
 import swaggerUi from 'swagger-ui-express';
@@ -24,6 +26,8 @@ const PORT = config.PORT;
 //Primero tenemos que configurar nuestro servidor para que pueda recibir información del cliente
 app.use(express.json()); //como indica el metodo, ahora el servidor podra recibir JSONS al momento de la petición
 app.use(express.urlencoded({extended:true})); //permite que se pueda enviar información tambien desde la URL
+//cors
+app.use(cors());
 
 app.use(cookieParser());
 
@@ -31,13 +35,14 @@ app.listen(PORT, ()=> {
     logger.info(`Escuchando puerto ${PORT}`);
 })
 
-app.use('/users', usersRouter);
-app.use('/products', productsRouter);
-app.use('/views', viewsRouter);
-app.use('/carts', cartsRouter);
-app.use('/mockingproducts', mockingProductsRouter);
-app.use('/messages', messagesRouter);
-app.use('/cambiarPassword', cambiarPasswordRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/products', productsRouter);
+app.use('/api/views', viewsRouter);
+app.use('/api/carts', cartsRouter);
+app.use('/api/mockingproducts', mockingProductsRouter);
+app.use('/api/messages', messagesRouter);
+app.use('/api/cambiarPassword', cambiarPasswordRouter);
+app.use('/api/payments', paymentsRouter);
 //swagger documentation endpoint
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSetup));
 

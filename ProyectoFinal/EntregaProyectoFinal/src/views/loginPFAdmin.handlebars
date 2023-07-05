@@ -1,0 +1,98 @@
+<div class="m-2">
+    <h1>Bienvenido Administrador {{mensaje}}</h1>
+</div>
+<div class="m-2">
+    <button onclick="fetchUsers()" class="btn btn-primary m-2">Obtener Todos los Usuarios</button>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Email</th>
+      <th>Rol</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody id="usersTableBody"></tbody>
+</table>
+
+<script>
+  function fetchUsers() {
+    fetch('/api/users/')
+      .then(response => response.json())
+      .then(data => {
+        const usersTableBody = document.getElementById('usersTableBody'); // Obtener el cuerpo de la tabla de usuarios
+        usersTableBody.innerHTML = ''; // Limpiar el contenido existente
+
+        data.users.forEach(user => {
+          const row = document.createElement('tr');
+          const firstNameCell = document.createElement('td');
+          const lastNameCell = document.createElement('td');
+          const emailCell = document.createElement('td');
+          const roleCell = document.createElement('td');
+          const actionsCell = document.createElement('td');
+
+          firstNameCell.textContent = user.first_name;
+          lastNameCell.textContent = user.last_name;
+          emailCell.textContent = user.email;
+          roleCell.textContent = user.role;
+
+          const editButton = document.createElement('button');
+          editButton.textContent = 'Editar';
+          editButton.className = 'btn btn-primary m-2';
+          editButton.onclick = () => editRoleUser(user._id);
+
+          const deleteButton = document.createElement('button');
+          deleteButton.textContent = 'Eliminar';
+          deleteButton.className = 'btn btn-danger m-2';
+          deleteButton.onclick = () => deleteUser(user._id);
+
+          actionsCell.appendChild(editButton);
+          actionsCell.appendChild(deleteButton);
+
+          row.appendChild(firstNameCell);
+          row.appendChild(lastNameCell);
+          row.appendChild(emailCell);
+          row.appendChild(roleCell);
+          row.appendChild(actionsCell);
+
+          usersTableBody.appendChild(row);
+        });
+      })
+      .catch(error => {
+        console.error('Error al obtener los usuarios:', error);
+      });
+  }
+
+  function editRoleUser(id) {
+    // Implementar la lógica para editar el usuario con el ID proporcionado
+    // Redirigir a la página de edición de usuario o mostrar un modal, según corresponda
+    fetch(`/api/users/editRoleUser/${id}`, {
+      method: 'PUT'})
+        .then(response => response.json())
+        .then(data => {
+            console.log('Respuesta:', data); // Mostrar la respuesta en la consola
+    })
+
+  }
+
+  function deleteUser(id) {
+    // Realizar la solicitud DELETE al endpoint correspondiente
+    fetch(`/api/users/${id}`, {
+        method: 'DELETE'
+    })
+    .then(response => {
+        if (response.ok) {
+        console.log('Usuario eliminado:', id);
+        // Realizar las acciones adicionales después de eliminar el usuario, si es necesario
+        } else {
+        console.error('Error al eliminar el usuario:', response.status);
+        }
+    })
+    .catch(error => {
+        console.error('Error al eliminar el usuario:', error);
+    });
+    }
+</script>

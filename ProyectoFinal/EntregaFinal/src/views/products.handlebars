@@ -1,0 +1,135 @@
+<!-- Tarjetas de productos -->
+<h1>Bienvenido {{user._doc.first_name}}</h1>
+<h2>Role: {{user._doc.role}}</h2>
+<h2>Email: {{user._doc.email}}</h2>
+{{!-- <h2>Cart: {{user._doc.cart}}</h2> --}}
+
+<hr class="m-2">
+
+<button type="button" class="btn btn-primary mb-3" onclick="location.href='/api/views'">LOGOUT</button>
+<button type="button" class="btn btn-primary mb-3" onclick="location.href='/api/views/addProduct'">Agregar Producto</button>
+<button type="button" class="btn btn-primary mb-3" onclick="location.href='/api/views/cart/{{user._doc.cart}}'">Ir a carrito</button>
+{{!-- <button type="button" class="btn btn-primary mb-3" onclick="location.href='/messages'">Enviar link Recuperación</button> --}}
+
+<div class="d-flex justify-content-center">
+  <h1 class="text-center">Catálogo de Productos</h1>
+</div>
+
+<div class="products-cards-container">
+  {{#each products}}
+  <div class="product-card">
+    <div class="product-info">
+      <h2>{{nombre}}</h2>
+      <p>{{grupo}}</p>
+      <p>Precio: {{precio}}</p>
+      <p>Stock: {{stock}}</p>
+      <p>Owner: {{owner}}</p>
+      <button type="button" class="button button-details" data-product-id="{{_id}}">Detalles</button>
+    </div>
+    <div class="product-buttons d-flex">
+      <form id="add-to-cart-form-{{_id}}" onsubmit="event.preventDefault(); addToCart('{{_id}}')">
+          <input type="hidden" name="_method" value="POST">
+          <input type="hidden" name="productId" value="{{_id}}">
+          <input type="number" name="quantity" min="1">
+          <button type="submit" class="button button-add-to-cart m-1">Agregar al carrito</button>
+      </form>
+      <button type="button" class="btn btn-primary m-2" onclick="deleteProduct('{{_id}}')">Eliminar</button>
+    </div>
+  </div>
+  {{/each}}
+</div>
+
+<!-- Controlador de eventos para el botón de detalles -->
+<script>
+  const cid = "{{user._doc.cart}}";
+  const first_name = "{{user._doc.first_name}}";
+  const email = "{{user._doc.email}}";
+  const password = "12345";
+
+  const detailsButtons = document.querySelectorAll('.button-details');
+
+  detailsButtons.forEach((button) => {
+    button.addEventListener('click', async () => {
+      const productId = button.dataset.productId;
+
+      const response = await fetch(`/api/products/${productId}`);
+      
+      const product = await response.json();
+
+      Swal.fire({
+        title: product.productId.nombre,
+        html: `
+          <p>${product.productId.grupo}</p>
+          <p>Precio: ${product.productId.precio}</p>
+        `,
+        confirmButtonText: 'Cerrar',
+      });
+    });
+  });
+
+  async function addToCart(pid) {
+    console.log('products.handlebars: ', cid);
+    const quantity = document.querySelector(`#add-to-cart-form-${pid} input[name='quantity']`).value;
+    const response = await fetch(`/api/carts/${cid}/products/${pid}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ quantity })
+    });
+    const result = await response.json();
+    console.log('result: ',result);
+
+    if (response.ok) {
+      Swal.fire({
+        title: 'Producto agregado',
+        text: 'El producto se ha agregado al carrito satisfactoriamente.',
+        icon: 'success',
+        confirmButtonText: 'Cerrar'
+      });
+    } else {
+      Swal.fire({
+        title: 'Error',
+        text: 'No se pudo agregar el producto al carrito.',
+        icon: 'error',
+        confirmButtonText: 'Cerrar'
+      });
+    }
+  }
+
+async function deleteProduct(productId) {
+  console.log('delete product: ', productId);
+  try {
+    const response = await fetch(`/api/products/${productId}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      const result = await response.json();
+      console.log('result products: ', result.products);
+
+      console.log('Producto Eliminado correctamente: ', productId);
+      // El producto se eliminó correctamente
+      Swal.fire({
+        title: 'Producto eliminado',
+        text: 'El producto se ha eliminado satisfactoriamente.',
+        icon: 'success',
+        confirmButtonText: 'Cerrar'
+      });
+    } else {
+      // No se pudo eliminar el producto
+      Swal.fire({
+        title: 'Error',
+        text: 'No se pudo eliminar el producto.',
+        icon: 'error',
+        confirmButtonText: 'Cerrar'
+      });
+    }
+  } catch (error) {
+    // Manejar el error de la solicitud
+  }
+}
+</script>
